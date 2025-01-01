@@ -1,0 +1,81 @@
+
+:root{
+  --background: rgb(185, 72, 72);
+} 
+
+body {
+    margin: 0;
+  }
+
+  .TitlePicture{
+    object-fit: cover;
+    width: 100%;
+  }
+
+  .FrameTable{
+    background-color: var(--background);
+    width: 100%;
+  }
+
+  .Headline2{
+    color: white;
+    font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+    font-size: 30pt;
+    text-align: left;
+  }
+
+  .TitleHeadline{
+    color: white;
+    font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+    font-size: clamp(30pt, 10vw, 80pt);
+    text-align: center;
+  }
+
+  .PageBackground{
+    margin-top: -3pt;
+  }
+
+  .StdText{
+    color: white;
+    font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+    font-size: 15pt;
+    height: auto;
+    min-height: 100pt;
+    margin-top: auto;
+    text-align: justify;
+    line-height: 25pt;
+  }
+
+  .Spacer{
+    background-color: var(--background);
+    height: 10pt;
+  }
+
+  .Headline1{
+    color: white;
+    font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+    font-size: clamp(30pt, 10vw, 50pt);
+    text-align: center;
+  }
+
+  .AboutText{
+    color: white;
+    font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+    font-size: 100%;
+    text-align: justify;
+  }
+
+  .AboutPicture{
+    position: relative;
+    align-items: center;
+    display: grid; /* Necessary for proper alignment inside th */
+    text-align: center; /* Center content inside the div itself */
+    align-content: center;
+  }
+
+  .AboutPictureImg{
+    position: relative;
+    display: grid; /* Necessary for proper alignment inside th */
+    vertical-align: middle;
+    width: 95%
+  }

@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="de">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Thommysax - About</title>
+    <link rel="stylesheet" href="style.css"></link>
+    <link rel="stylesheet" href="styleHeadbar.css"></link>
+    <link rel="stylesheet" href="styleFootbar.css"></link>
+
+    <meta http-equiv="ScreenOrientation" content="autoRotate:disabled">
+  </head>
+
+  <script> 
+    function ResizeFunction(){
+      if (window.innerWidth < 600) {
+        document.getElementById('ImgCol').style.width = "0px";
+        document.getElementById('TxtCol').style.width = (window.innerWidth * 0.8) + "px";
+      }
+      else
+      {
+        document.getElementById('ImgCol').style.width = (window.innerWidth * 0.4) + "px";
+        document.getElementById('TxtCol').style.width = (window.innerWidth * 0.4) + "px";
+      }
+    }
+  </script> 
+
+  <body onresize="ResizeFunction()" onload="ResizeFunction()">
+    <div id="HeadBar"></div>
+
+    <div class="PageBackground">
+
+      <div class="Spacer"></div>
+      <table class="FrameTable">
+        <tr>
+          <th class="FrameSides" width="10%"></th>
+          <th class="FrameContent" width="80%">
+            <div class="Headline1">
+              Über mich
+            </div>
+          </th>
+          <th class="FrameSides" width="10%"></th>
+        </tr>
+    </table>
+    <div class="Spacer"></div>
+    <table class="FrameTable">
+        <tr>
+          <th class="FrameSides" width="10%"></th>
+          <th class="FrameContent" id="ImgCol" class="hide-column">
+            <div class="AboutPicture" id="AboutPicture">
+                <img class="AboutPictureImg" src="Resources/AboutPic.png">
+            </div>
+          </th>
+          <th class="FrameContent" id="TxtCol">
+            <div class="AboutText" id="AboutText">
+                TitleText
+            </div>
+          </th>
+          <th class="FrameSides" width="10%"></th>
+        </tr>
+      </table>
+      <div class="Spacer"></div>
+      <div class="Spacer"></div>
+
+      
+      <table class="FrameTable">
+        <tr>
+          <th class="FrameSides" width="10%"></th>
+          <th class="FrameContent" width="80%">
+            <div><iframe height="800pt" width="100%" src="https://www.eventpeppers.com/de/thommysax" frameborder="0"></iframe></div>
+          </th>
+          <th class="FrameSides" width="10%"></th>
+        </tr>
+      </table>
+    </div>
+    </div>
+
+    <div id="FootBar"></div>
+
+  </body>
+</html>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+<script> 
+
+    $(function(){
+        $("#HeadBar").load("FixedPages/HeadBar.html"); 
+        $("#FootBar").load("FixedPages/FootBar.html"); 
+    });
+</script> 
+
+
+
+<script>
+  var txtFile1 = new XMLHttpRequest();
+    var allText1 = "";
+
+    txtFile1.onreadystatechange = function () {
+        if (txtFile1.readyState === XMLHttpRequest.DONE && txtFile1.status == 200) {
+          allText1 = txtFile1.responseText;
+          allText1 = allText1.split("\n").join("<br>");
+        }
+
+        document.getElementById('AboutText').innerHTML = allText1;
+    }
+    
+    txtFile1.open("GET", "Texts/AboutText.txt", true);
+    txtFile1.send(null);
+</script>

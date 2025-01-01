@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="de">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Thommysax - About</title>
+    <link rel="stylesheet" href="style.css"></link>
+    <link rel="stylesheet" href="styleHeadbar.css"></link>
+    <link rel="stylesheet" href="styleFootbar.css"></link>
+
+    <meta http-equiv="ScreenOrientation" content="autoRotate:disabled">
+  </head>
+
+  <body>
+    <div id="HeadBar"></div>
+
+    <div class="PageBackground">
+
+      <div class="Spacer"></div>
+      <table class="FrameTable">
+        <tr>
+          <th class="FrameSides" width="10%"></th>
+          <th class="FrameContent" width="80%">
+            <div class="Headline1">
+              Kontakt
+            </div>
+          </th>
+          <th class="FrameSides" width="10%"></th>
+        </tr>
+        <tr>
+          <th class="FrameSides" width="10%"></th>
+          <th class="FrameContent" width="80%">
+            <div class="Spacer"></div>
+            <div class="Spacer"></div>
+            <div class="StdText"><p style="text-align: center;">Hier könnt ihr mich <b>unverbindlich</b> anfragen. Klickt dazu einfach auf den Button. Ich freue mich, von euch zu hören und setze mich dann umgehend mit euch in Verbindung.<br><br><a href="https://www.kaduda.de/f/?h=Mm6wLBQBTyaPpS1LNvGDYn" target="_blank"><img width="240" height="50" alt="Jetzt Thommysax anfragen" title="" src="https://www.kaduda.de/button/jetztanfragen-13.webp" /></a></p></div>
+          </th>
+          <th class="FrameSides" width="10%"></th>
+        </tr>
+        <tr>
+          <th class="FrameSides" width="10%"></th>
+          <th class="FrameContent" width="80%">
+            <div class="Spacer"></div>
+            <div class="Spacer"></div>
+            <div class="StdText" style="text-align: center;">Oder kontaktiere mich per Mail unter:</br><a class="StdText" href="mailto:kontakt@thommy-sax.com?subject=Website-Kontaktanfrage%20-%20Thommysax">kontakt@thommy-sax.com</a></div>
+            
+          </th>
+          <th class="FrameSides" width="10%"></th>
+        </tr>
+    </table>
+
+      <div class="Spacer"></div>
+      <div class="Spacer"></div>
+
+    <div id="FootBar"></div>
+
+  </body>
+</html>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+<script> 
+
+    $(function(){
+        $("#HeadBar").load("FixedPages/HeadBar.html"); 
+        $("#FootBar").load("FixedPages/FootBar.html"); 
+    });
+</script> 
+
+<script>
+  var txtFile1 = new XMLHttpRequest();
+    var allText1 = "";
+
+    txtFile1.onreadystatechange = function () {
+        if (txtFile1.readyState === XMLHttpRequest.DONE && txtFile1.status == 200) {
+          allText1 = txtFile1.responseText;
+          allText1 = allText1.split("\n").join("<br>");
+        }
+
+        document.getElementById('AboutText').innerHTML = allText1;
+    }
+    
+    txtFile1.open("GET", "Texts/AboutText.txt", true);
+    txtFile1.send(null);
+</script>

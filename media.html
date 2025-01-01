@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="de">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Thommysax - Media</title>
+    <link rel="stylesheet" href="style.css"></link>
+    <link rel="stylesheet" href="styleHeadbar.css"></link>
+    <link rel="stylesheet" href="styleFootbar.css"></link>
+
+    <meta http-equiv="ScreenOrientation" content="autoRotate:disabled">
+  </head>
+
+  <body>
+    <div id="HeadBar"></div>
+
+    <div class="PageBackground">
+
+      <div class="Spacer"></div>
+      <table class="FrameTable">
+        <tr>
+          <th class="FrameSides" width="10%"></th>
+          <th class="FrameContent" width="80%">
+            <div class="Headline1">
+              Media
+            </div>
+          </th>
+          <th class="FrameSides" width="10%"></th>
+        </tr>
+    </table>
+    <div class="Spacer"></div>
+    <table class="FrameTable">
+      <tr>
+        <th class="FrameSides" width="10%"></th>
+        <th class="FrameContent" width="40%">
+          <iframe width="100%" height="315" src="https://www.youtube.com/embed/PC8xREP6B2s?si=_DNTTY84pIw9ytIq" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+        </th>
+        <th class="FrameContent" width="40%">
+          <iframe width="100%" height="315" src="https://www.youtube.com/embed/74qtK6UR8aI?si=b7tDHPL93IbuljjR" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+        </th>
+        <th class="FrameSides" width="10%"></th>
+      </tr>
+    </table>
+    <table class="FrameTable">
+      <tr>
+        <th class="FrameSides" width="10%"></th>
+        <th class="FrameContent" width="80%">
+          <div class="Headline2">
+            Instagram:
+          </div>
+          <iframe src='https://widgets.sociablekit.com/instagram-feed/iframe/25502879' frameborder='0' width="100%" height="1000pt"></iframe>
+        </th>
+        <th class="FrameSides" width="10%"></th>
+      </tr>
+      </table>
+      <div class="Spacer"></div>
+      <div class="Spacer"></div>
+    </div>
+    
+    <div id="FootBar"></div>
+
+  </body>
+</html>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+<script> 
+
+    $(function(){
+        $("#HeadBar").load("FixedPages/HeadBar.html"); 
+        $("#FootBar").load("FixedPages/FootBar.html"); 
+    });
+</script> 
+
+<script>
+  var txtFile1 = new XMLHttpRequest();
+    var allText1 = "";
+
+    txtFile1.onreadystatechange = function () {
+        if (txtFile1.readyState === XMLHttpRequest.DONE && txtFile1.status == 200) {
+          allText1 = txtFile1.responseText;
+          allText1 = allText1.split("\n").join("<br>");
+        }
+
+        document.getElementById('AboutText').innerHTML = allText1;
+    }
+    
+    txtFile1.open("GET", "Texts/AboutText.txt", true);
+    txtFile1.send(null);
+</script>
