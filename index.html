@@ -1,106 +1,278 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="de">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Thommysax</title>
-    <link rel="stylesheet" href="style.css"></link>
-    <link rel="stylesheet" href="styleHeadbar.css"></link>
-    <link rel="stylesheet" href="styleFootbar.css"></link>
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Thommysax</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
 
-    <meta http-equiv="ScreenOrientation" content="autoRotate:disabled">
-  </head>
+<body>
 
-  <body>
-    <div id="HeadBar"></div>
+  <!-- HEADER -->
+  <header class="header">
+    <div class="container header__inner">
+      <a class="brand" href="index.html">
+        <img class="brand__logo" src="Resources/logo.png" alt="Thommysax Logo" />
+        <span class="brand__name">THOMMYSAX</span>
+      </a>
 
-    <div class="TitlePicture"><img width="100%" id="TitlePictureImg" src="Resources/TitlePic.png"></div>
+      <button class="burger" type="button" aria-label="Menü öffnen" aria-expanded="false" data-burger>
+        <span></span><span></span><span></span>
+      </button>
 
-    <div class="PageBackground">
+      <nav class="nav" data-nav>
+        <a class="nav__link nav__link--active" href="index.html">Home</a>
+        <a class="nav__link" href="about.html">Über mich</a>
+        <a class="nav__link" href="media.html">Media</a>
+        <a class="nav__link" href="contact.html">Kontakt</a>
+      </nav>
+    </div>
+  </header>
 
-      <div class="Spacer"></div>
-      <table class="FrameTable">
-        <tr>
-          <th class="FrameSides" width="10%"></th>
-          <th class="FrameContent" width="80%">
-            <div class="Headline2">
-              Herzlich Willkommen bei...
-            </div>
-            <div class="TitleHeadline">
-              THOMMYSAX
-            </div>
-            <div class="Spacer"></div>
-            <div class="StdText" id="TitleText">
-              TitleText
-            </div>
-          </th>
-          <th class="FrameSides" width="10%"></th>
-        </tr>
-        <tr>
-          <th class="FrameSides" width="10%"></th>
-          <th class="FrameContent" width="80%">
-            <div class="Spacer"></div>
-            <div class="Spacer"></div>
-            <div class="Headline2">
-              Events:
-            </div>
-            <div class="Spacer"></div>
-          </th>
-          <th class="FrameSides" width="10%"></th>
-        </tr>
-        <tr>
-          <th class="FrameSides" width="10%"></th>
-          <th class="FrameContent" width="80%">
-            <iframe src="https://calendar.google.com/calendar/embed?height=600&wkst=2&ctz=Europe%2FBerlin&showPrint=0&mode=AGENDA&showNav=0&showTitle=0&showDate=0&showTabs=0&showTz=0&showCalendars=0&src=NjczMmNkY2VmOTY3OWQzYTIzNTc0YWQzOThhOWEyZDUxNDM5ZTNkMWMxNjFlNzUwNzRiODIzZTQxODZmMTI5OUBncm91cC5jYWxlbmRhci5nb29nbGUuY29t&color=%237CB342" style="border-width:0pt" width="100%" height="500pt" frameborder="0" scrolling="no"></iframe>
-            <div class="Spacer"></div><div class="Spacer"></div>
-          </th>
-          <th class="FrameSides" width="10%"></th>
-        </tr>
-      </table>
+
+
+  <!-- MAIN -->
+  <main class="main">
+
+      <!-- HERO (Bild oben, Text darunter) -->
+  <section class="hero">
+    <div class="hero__media">
+      <img src="Resources/TitlePic.png" alt="Thommysax live" />
     </div>
 
-    
-    <div id="FootBar"></div>
+    <div class="hero__below">
+      <div class="container">
+        <p class="hero__kicker">Live-Sax für Events, Hochzeiten & Firmenfeiern</p>
+        <h1 class="hero__title">THOMMYSAX</h1>
+        <p class="hero__text" id="TitleText">Lädt Text…</p>
 
-  </body>
-</html>
+        <div class="hero__cta">
+          <a class="btn btn--primary" href="contact.html">Jetzt Anfragen!</a>
+        </div>
+      </div>
+    </div>
+  </section>
+    <section class="section" id="events">
+      <div class="container">
+        <header class="section__head">
+          <h2 class="section__title">Events</h2>
+          <p class="section__sub">Alle öffentlichen Termine auf einen Blick.</p>
+        </header>
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <div class="panel">
+          <div class="panel__top">
+            <div class="panel__title">Kommende Termine</div>
+            <div class="panel__meta" id="eventsMeta">Lädt…</div>
+          </div>
 
-<script> 
+          <div class="events" id="eventsList"></div>
+        </div>
+      </div>
+    </section>
+  </main>
 
-    $(function(){
-        $("#HeadBar").load("HeadBar.html"); 
-        $("#FootBar").load("FootBar.html"); 
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container footer__grid">
+      <div class="footer__col">
+        <img class="footer__logo" src="Resources/logo.png" alt="Thommysax Logo" />
+        <p class="footer__text">
+          Live-Sax für Events, Hochzeiten & Firmenfeiern.<br/>
+          Raum Stuttgart / Mannheim & Umgebung.
+        </p>
+      </div>
+
+      <div class="footer__col">
+        <div class="footer__title">Links</div>
+        <a class="footer__link" href="index.html">Home</a>
+        <a class="footer__link" href="about.html">Über mich</a>
+        <a class="footer__link" href="media.html">Media</a>
+        <a class="footer__link" href="contact.html">Kontakt</a>
+      </div>
+
+      <div class="footer__col">
+        <div class="footer__title">Kontakt</div>
+        <a class="footer__link" href="mailto:info@thommysax.de">info@thommysax.de</a>
+        <a class="footer__link" href="tel:+4917636621250">+49 176 36621250</a>
+
+        <div class="footer__chips">
+          <a class="chip" target="_blank" href="https://www.instagram.com/tomtomsax88/">Instagram</a>
+          <a class="chip" target="_blank" href="https://www.youtube.com/@Thommysax88">YouTube</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="container footer__bottom">
+      <div class="footer__bottomLeft">
+        <div class="footer__copyright">© <span id="year"></span> Thommysax</div>
+        <div class="footer__powered">
+          This website is powered by
+          <a class="footer__poweredLink" href="https://lipamusicservices.com" target="_blank" rel="noopener">LiPa Music Services</a>
+        </div>
+      </div>
+
+      <div class="footer__bottomlinks">
+        <a class="footer__small" href="impressum.html">Impressum</a>
+        <a class="footer__small" href="datenschutz.html">Datenschutz</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- SCRIPTS -->
+  <script>
+    // Jahr
+    document.getElementById("year").textContent = new Date().getFullYear();
+
+    // Burger: Top Drawer
+    document.addEventListener("DOMContentLoaded", () => {
+      const burger = document.querySelector("[data-burger]");
+      const nav = document.querySelector("[data-nav]");
+      if (!burger || !nav) return;
+
+      const openNav = () => {
+        burger.setAttribute("aria-expanded", "true");
+        nav.classList.add("nav--open");
+        document.body.classList.add("noScroll");
+      };
+      const closeNav = () => {
+        burger.setAttribute("aria-expanded", "false");
+        nav.classList.remove("nav--open");
+        document.body.classList.remove("noScroll");
+      };
+
+      burger.addEventListener("click", (e) => {
+        e.preventDefault();
+        e.stopPropagation();
+        const isOpen = burger.getAttribute("aria-expanded") === "true";
+        isOpen ? closeNav() : openNav();
+      });
+
+      document.addEventListener("click", (e) => {
+        if (!nav.contains(e.target) && !burger.contains(e.target)) closeNav();
+      });
+
+      document.addEventListener("keydown", (e) => {
+        if (e.key === "Escape") closeNav();
+      });
+
+      nav.querySelectorAll("a").forEach(a => a.addEventListener("click", closeNav));
     });
-</script> 
 
-<script>
-    var txtFile1 = new XMLHttpRequest();
-    var allText1 = "";
+    // Title Text laden (wichtig: Pfad + Case beachten!)
+    document.addEventListener("DOMContentLoaded", () => {
+      const el = document.getElementById("TitleText");
+      if (!el) return;
 
-    txtFile1.onreadystatechange = function () {
-        if (txtFile1.readyState === XMLHttpRequest.DONE && txtFile1.status == 200) {
-          allText1 = txtFile1.responseText;
-          allText1 = allText1.split("\n").join("<br>");
+      fetch("./Texts/TitleText.txt")
+        .then(r => r.ok ? r.text() : Promise.reject(new Error("TitleText 404")))
+        .then(t => el.innerHTML = t.trim().split("\n").map(l => l.trim()).join("<br>"))
+        .catch(() => el.textContent = "Text konnte nicht geladen werden.");
+    });
+  </script>
+
+  <script>
+    // Events (JSONP)
+    const EVENTS_API = "https://script.google.com/macros/s/AKfycbwkAFz-5pvzWuR79_A6UfA6vEhIgdrL1h5Hd8pRndlsl__KhOn6nfdXuinerKw0LaPQAg/exec";
+    const EVENTS_DAYS = 180;
+    const EVENTS_MAX  = 40;
+    const PUBLIC_ONLY = 0;
+
+    function loadJSONP(url, timeoutMs = 10000) {
+      return new Promise((resolve, reject) => {
+        const cb = "cb_" + Math.random().toString(36).slice(2);
+        const s = document.createElement("script");
+
+        const timer = setTimeout(() => {
+          cleanup();
+          reject(new Error("JSONP timeout"));
+        }, timeoutMs);
+
+        window[cb] = (data) => {
+          clearTimeout(timer);
+          cleanup();
+          resolve(data);
+        };
+
+        const join = url.includes("?") ? "&" : "?";
+        s.src = `${url}${join}callback=${cb}&_=${Date.now()}`;
+        s.async = true;
+        s.onerror = () => {
+          clearTimeout(timer);
+          cleanup();
+          reject(new Error("JSONP load error"));
+        };
+
+        document.head.appendChild(s);
+
+        function cleanup() {
+          try { delete window[cb]; } catch {}
+          s.remove();
         }
-
-        document.getElementById('TitleText').innerHTML = allText1;
+      });
     }
-    
-    txtFile1.open("GET", "Texts/TitleText.txt", true);
-    txtFile1.send(null);
 
-</script> 
+    const esc = (s) => String(s ?? "").replace(/[&<>"']/g, m => ({
+      "&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#039;"
+    }[m]));
 
-<script>
-  function adjustImageMargin() {
-    
-}
+    const fmtDate = (d) => new Intl.DateTimeFormat("de-DE", {
+      weekday:"short", day:"2-digit", month:"2-digit", year:"numeric"
+    }).format(d);
 
-// Adjust on page load
-window.addEventListener('load', adjustImageMargin);
+    const fmtTime = (d) => new Intl.DateTimeFormat("de-DE", {
+      hour:"2-digit", minute:"2-digit"
+    }).format(d);
 
-// Adjust on window resize
-window.addEventListener('resize', adjustImageMargin);
-</script>
+    function renderEvents(payload){
+      const list = document.getElementById("eventsList");
+      const meta = document.getElementById("eventsMeta");
+
+      if (!payload || payload.ok !== true) {
+        meta.textContent = "Fehler";
+        list.innerHTML = `<div class="events__empty">Events konnten nicht geladen werden.</div>`;
+        return;
+      }
+
+      const events = payload.events || [];
+      meta.textContent = events.length ? `${events.length} Termine` : "Keine Termine";
+
+      if (!events.length) {
+        list.innerHTML = `<div class="events__empty">Aktuell keine Termine.</div>`;
+        return;
+      }
+
+      list.innerHTML = events.map(ev => {
+        const s = new Date(ev.start);
+        const e = new Date(ev.end);
+        const dateStr = fmtDate(s);
+        const timeStr = ev.allDay ? "Ganztägig" : `${fmtTime(s)} – ${fmtTime(e)}`;
+        const loc = ev.location ? ev.location : "";
+
+        return `
+          <article class="event">
+            <div class="event__top">
+              <div class="event__date">${esc(dateStr)}</div>
+              <div class="event__time">${esc(timeStr)}</div>
+            </div>
+            <div class="event__title">${esc(ev.title || "Ohne Titel")}</div>
+            ${loc ? `<div class="event__sub">📍 ${esc(loc)}</div>` : ``}
+          </article>
+        `;
+      }).join("");
+    }
+
+    (async function(){
+      const url = `${EVENTS_API}?days=${EVENTS_DAYS}&max=${EVENTS_MAX}&publicOnly=${PUBLIC_ONLY}`;
+      try {
+        const data = await loadJSONP(url);
+        renderEvents(data);
+      } catch (err) {
+        console.error(err);
+        renderEvents({ ok:false });
+      }
+    })();
+  </script>
+
+</body>
+</html>

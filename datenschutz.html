@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Impressum – Thommysax</title>
+  <title>Datenschutzerklärung – Thommysax</title>
 
   <link rel="stylesheet" href="style.css" />
 
@@ -37,9 +37,9 @@
     <!-- HERO -->
     <section class="section section--tight">
       <div class="container">
-        <h1 class="section-title">Impressum</h1>
+        <h1 class="section-title">Datenschutzerklärung</h1>
         <p class="section-subtitle">
-          Angaben gemäß § 5 TMG
+          Informationen zum Datenschutz gemäß DSGVO
         </p>
       </div>
     </section>
@@ -48,7 +48,7 @@
     <section class="section">
       <div class="container">
         <div class="panel panel--text">
-          <div id="Impressum" class="richtext">
+          <div id="Datenschutz" class="richtext">
             <!-- Inhalt wird per TXT geladen -->
           </div>
         </div>
@@ -133,12 +133,16 @@
     // Jahr im Footer
     document.getElementById("year").textContent = new Date().getFullYear();
 
-    // Impressum-Text laden
-    fetch("Texts/Impressum.txt")
+    // Datenschutz-Text laden
+    fetch("Texts/Datenschutz.txt")
       .then(r => r.text())
       .then(t => {
-        document.getElementById("Impressum").innerHTML =
+        document.getElementById("Datenschutz").innerHTML =
           t.split("\n").join("<br>");
+      })
+      .catch(() => {
+        document.getElementById("Datenschutz").textContent =
+          "Datenschutzerklärung konnte nicht geladen werden.";
       });
   </script>
 

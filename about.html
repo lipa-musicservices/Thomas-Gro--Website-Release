@@ -1,110 +1,445 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="de">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Thommysax - About</title>
-    <link rel="stylesheet" href="style.css"></link>
-    <link rel="stylesheet" href="styleHeadbar.css"></link>
-    <link rel="stylesheet" href="styleFootbar.css"></link>
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Thommysax – Über mich</title>
 
-    <meta http-equiv="ScreenOrientation" content="autoRotate:disabled">
-  </head>
+  <link rel="stylesheet" href="style.css" />
+</head>
 
-  <script> 
-    function ResizeFunction(){
-      if (window.innerWidth < 600) {
-        document.getElementById('ImgCol').style.width = "0px";
-        document.getElementById('TxtCol').style.width = (window.innerWidth * 0.8) + "px";
-      }
-      else
-      {
-        document.getElementById('ImgCol').style.width = (window.innerWidth * 0.4) + "px";
-        document.getElementById('TxtCol').style.width = (window.innerWidth * 0.4) + "px";
-      }
-    }
-  </script> 
+<body>
+  <!-- HEADER -->
+  <header class="header">
+    <div class="container header__inner">
+      <a class="brand" href="index.html">
+        <img class="brand__logo" src="Resources/logo.png" alt="Thommysax Logo" />
+        <span class="brand__name">THOMMYSAX</span>
+      </a>
 
-  <body onresize="ResizeFunction()" onload="ResizeFunction()">
-    <div id="HeadBar"></div>
+      <button class="burger" aria-label="Menü öffnen" aria-expanded="false" data-burger>
+        <span></span><span></span><span></span>
+      </button>
 
-    <div class="PageBackground">
-
-      <div class="Spacer"></div>
-      <table class="FrameTable">
-        <tr>
-          <th class="FrameSides" width="10%"></th>
-          <th class="FrameContent" width="80%">
-            <div class="Headline1">
-              Über mich
-            </div>
-          </th>
-          <th class="FrameSides" width="10%"></th>
-        </tr>
-    </table>
-    <div class="Spacer"></div>
-    <table class="FrameTable">
-        <tr>
-          <th class="FrameSides" width="10%"></th>
-          <th class="FrameContent" id="ImgCol" class="hide-column">
-            <div class="AboutPicture" id="AboutPicture">
-                <img class="AboutPictureImg" src="Resources/AboutPic.png">
-            </div>
-          </th>
-          <th class="FrameContent" id="TxtCol">
-            <div class="AboutText" id="AboutText">
-                TitleText
-            </div>
-          </th>
-          <th class="FrameSides" width="10%"></th>
-        </tr>
-      </table>
-      <div class="Spacer"></div>
-      <div class="Spacer"></div>
-
-      
-      <table class="FrameTable">
-        <tr>
-          <th class="FrameSides" width="10%"></th>
-          <th class="FrameContent" width="80%">
-            <div><iframe height="800pt" width="100%" src="https://www.eventpeppers.com/de/thommysax" frameborder="0"></iframe></div>
-          </th>
-          <th class="FrameSides" width="10%"></th>
-        </tr>
-      </table>
+      <nav class="nav" data-nav>
+        <a class="nav__link" href="index.html">Home</a>
+        <a class="nav__link nav__link--active" href="about.html">Über mich</a>
+        <a class="nav__link" href="media.html">Media</a>
+        <a class="nav__link" href="contact.html">Kontakt</a>
+      </nav>
     </div>
+  </header>
+
+  <!-- MAIN -->
+  <main class="main">
+    <!-- HERO / Header (wie auf Media) -->
+<section class="section section--tight">
+  <div class="container">
+    <h1 class="section-title">Über mich</h1>
+    <p class="section-subtitle">
+      Ein paar Infos zu mir – und alles Wichtige auf einen Blick.
+    </p>
+  </div>
+</section>
+
+<!-- ABOUT CONTENT -->
+<section class="section">
+  <div class="container">
+    <div class="about">
+      <div class="about__image">
+        <img src="Resources/AboutPic.png" alt="Thommysax Portrait" />
+      </div>
+
+      <div class="about__text" id="AboutText">
+        Lädt Text…
+      </div>
+    </div>
+  </div>
+</section>
+
+
+    <section class="section section--dark">
+  <div class="container">
+    <h2 class="section-title">Thommysax bei Eventpeppers</h2>
+    <p class="section-subtitle">
+  Bewertungen, Referenzen und Buchungsmöglichkeiten auf einen Blick.
+</p>
+
+    <div class="profileGrid">
+      <!-- MAIN -->
+      <div class="profileCard">
+        <div class="profileHeader">
+          <div>
+            <h2 class="h2">Thommysax</h2>
+            <div class="profileMeta">
+              Einzelmusiker · Saxophon · 67071 Ludwigshafen am Rhein
+            </div>
+          </div>
+
+          <a class="btn btn--primary" href="https://www.eventpeppers.com/de/thommysax" target="_blank">Kostenlos über Eventpeppers anfragen</a>
+        </div>
+
+        <div class="profileFacts">
+          <div class="fact"><span class="fact__k">Aktionsradius</span><span class="fact__v">500 km</span></div>
+          <div class="fact"><span class="fact__k">Gage</span><span class="fact__v">€</span></div>
+          <div class="fact"><span class="fact__k">Dabei seit</span><span class="fact__v">01/2017</span></div>
+        </div>
+
+        <div class="badgeRow">
+          <span class="badge">Saxophon</span>
+          <span class="badge">Jazz</span>
+          <span class="badge">Pop</span>
+          <span class="badge">Soul</span>
+          <span class="badge">Funk</span>
+          <span class="badge">Lounge</span>
+          <span class="badge">Disco</span>
+          <span class="badge">Reggae</span>
+          <span class="badge">90er</span>
+          <span class="badge">Musical</span>
+        </div>
+      </div>
+
+      <!-- SIDE -->
+      <aside class="profileSide">
+        <div class="profileCard">
+          <div class="ratingBox">
+            <div class="ratingTop">
+              <div class="ratingValue">5,0</div>
+              <div class="stars" aria-label="5 von 5">★★★★★</div>
+            </div>
+            <div class="ratingSub">30 Bewertungen · 100% Weiterempfehlung</div>
+
+            <a class="btn btn--ghost"
+               href="https://www.eventpeppers.com/de/thommysax/reviews"
+               target="_blank" rel="noopener">
+              Bewertungen auf Eventpeppers
+            </a>
+          </div>
+        </div>
+
+        <div class="profileCard">
+          <div class="miniTitle">Wird gerne gebucht für</div>
+          <ul class="pillList">
+            <li>Hochzeit – Feier</li>
+            <li>Geburtstagsfeier</li>
+            <li>Hochzeit – Trauung</li>
+            <li>Empfang</li>
+            <li>Firmenfeier</li>
+            <li>Beerdigung</li>
+            <li>Weihnachtsfeier</li>
+          </ul>
+        </div>
+      </aside>
     </div>
 
-    <div id="FootBar"></div>
+    <!-- GALLERY -->
+    <div class="panel" style="margin-top:1.2rem;">
+      <div class="panel__head">
+        <h3 class="panel__title">Fotos</h3>
+      </div>
+      <div class="gallery" id="gallery">
+        <!-- hier kommen deine Bilder rein (siehe JS unten) -->
+      </div>
+    </div>
 
-  </body>
+    <div class="lightbox" id="lightbox" aria-hidden="true">
+  <button class="lightbox__bg" type="button" aria-label="Schließen"></button>
+  <img class="lightbox__img" id="lightboxImg" alt="">
+  <button class="lightbox__close" type="button" aria-label="Schließen">✕</button>
+</div>
+
+    <!-- VIDEOS -->
+    <div class="panel" style="margin-top:1.2rem;">
+      <div class="panel__head">
+        <h3 class="panel__title">Videos & Hörproben</h3>
+      </div>
+
+      <div class="videoGrid" id="videos">
+        <!-- hier kommen deine Videos rein (siehe JS unten) -->
+      </div>
+    </div>
+
+    <!-- ACCORDION -->
+    <div class="panel" style="margin-top:1.2rem;">
+  <section class="acc acc--open">
+    <h3 class="acc__title">Beschreibung</h3>
+    <div class="acc__body" id="descText"></div>
+  </section>
+
+  <section class="acc acc--open">
+    <h3 class="acc__title">Repertoire</h3>
+    <div class="acc__body">
+      <ul class="niceList">
+        <li>Jazz</li>
+        <li>Funk</li>
+        <li>Soul</li>
+        <li>Pop, Lounge</li>
+      </ul>
+      <p class="muted">Auf Wunsch spiele ich auch Songs, die nicht zum Standard-Repertoire gehören.</p>
+    </div>
+  </section>
+
+  <section class="acc acc--open">
+    <h3 class="acc__title">Referenzen</h3>
+    <div class="acc__body">
+      <ul class="niceList niceList--cols" id="refList"></ul>
+    </div>
+  </section>
+</div>
+
+</section>
+
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container footer__grid">
+      <div class="footer__col">
+        <img class="footer__logo" src="Resources/logo.png" alt="Thommysax Logo" />
+        <p class="footer__text">
+          Live-Sax für Events, Hochzeiten & Firmenfeiern.<br/>
+          Raum Stuttgart / Mannheim & Umgebung.
+        </p>
+      </div>
+
+      <div class="footer__col">
+        <div class="footer__title">Links</div>
+        <a class="footer__link" href="index.html">Home</a>
+        <a class="footer__link" href="about.html">Über mich</a>
+        <a class="footer__link" href="media.html">Media</a>
+        <a class="footer__link" href="contact.html">Kontakt</a>
+      </div>
+
+      <div class="footer__col">
+        <div class="footer__title">Kontakt</div>
+        <a class="footer__link" href="mailto:info@thommysax.de">info@thommysax.de</a>
+        <a class="footer__link" href="tel:+4917636621250">+49 176 36621250</a>
+
+        <div class="footer__chips">
+          <a class="chip" target="_blank" href="https://www.instagram.com/tomtomsax88/" aria-label="Instagram">Instagram</a>
+          <a class="chip" target="_blank" href="https://www.youtube.com/@Thommysax88" aria-label="YouTube">YouTube</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="container footer__bottom">
+  <div class="footer__bottomLeft">
+    <div class="footer__copyright">
+      © <span id="year"></span> Thommysax
+    </div>
+    <div class="footer__powered">
+      This website is powered by <a class="footer__poweredLink" href="https://lipamusicservices.com" target="_blank" rel="noopener">LiPa Music Services</a>
+    </div>
+  </div>
+
+  <div class="footer__bottomlinks">
+    <a class="footer__small" href="impressum.html">Impressum</a>
+    <a class="footer__small" href="datenschutz.html">Datenschutz</a>
+  </div>
+</div>
+
+  </footer>
+  <!-- SCRIPTS -->
+  <script>
+    // Jahr
+    document.getElementById("year").textContent = new Date().getFullYear();
+
+    // Burger Menü
+    const burger = document.querySelector("[data-burger]");
+    const nav = document.querySelector("[data-nav]");
+    burger.addEventListener("click", () => {
+      nav.classList.toggle("nav--open");
+      burger.setAttribute("aria-expanded", nav.classList.contains("nav--open"));
+    });
+
+    // About Text laden
+    fetch("Texts/AboutText.txt")
+      .then(r => r.ok ? r.text() : Promise.reject())
+      .then(t => {
+        document.getElementById("AboutText").innerHTML =
+          t.trim().split("\n").map(line => line.trim()).join("<br>");
+      })
+      .catch(() => {
+        document.getElementById("AboutText").textContent =
+          "Text konnte nicht geladen werden.";
+      });
+  </script>
+</body>
 </html>
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script>
+  const EP_URL = "https://www.eventpeppers.com/de/thommysax";
 
-<script> 
+  const gate  = document.getElementById("epGate");
+  const frame = document.getElementById("epFrame");
+  const btn   = document.getElementById("epLoadBtn");
 
-$(function(){
-        $("#HeadBar").load("HeadBar.html"); 
-        $("#FootBar").load("FootBar.html"); 
-    });
-</script> 
+  function loadEventpeppers(){
+    frame.src = EP_URL;
+    frame.style.display = "block";
+    gate.style.display = "none";
+    localStorage.setItem("consent_eventpeppers", "1");
+  }
 
+  btn.addEventListener("click", loadEventpeppers);
 
+  // optional: wenn User schon mal zugestimmt hat
+  if (localStorage.getItem("consent_eventpeppers") === "1") {
+    loadEventpeppers();
+  }
+</script>
 
 <script>
-  var txtFile1 = new XMLHttpRequest();
-    var allText1 = "";
+  // === 1) Beschreibung (dein eigener Text) ===
+  const DESC = `Ich bin in Ludwigshafen am Rhein geboren ... Ich freue mich über Ihre Anfragen!`;
+document.getElementById("descText").textContent = DESC;
 
-    txtFile1.onreadystatechange = function () {
-        if (txtFile1.readyState === XMLHttpRequest.DONE && txtFile1.status == 200) {
-          allText1 = txtFile1.responseText;
-          allText1 = allText1.split("\n").join("<br>");
-        }
+const REFERENCES = [
+  "Mehrjähriges Mitglied der Landesjugendjazzorchester Rheinland-Pfalz und Bayern.",
+  "Saxophonist bei den Jamrays",
+  "Brass2Go, die Marching Band",
+  "Mike Field, Unterfahrt München",
+  "Idstein Jazz Festival, Bad Homburger Jazztage 2021",
+  "Showbühne Mainz, Festhalle Pirmasens",
+  "Pura GmbH, Saarbrücken",
+  "De Longhi, Neu Isenburg",
+  "Internationale Hotelfachschule Heidelberg",
+  "Hambacher Schloss, Neustadt an der Weinstraße",
+  "Stadthalle Hockenheim",
+  "Alanus Hochschule Mannheim",
+  "Stadt Ludwigshafen am Rhein",
+  "Schloss Heiligenberg, Seeheim-Jugenheim",
+  "Eventlocation Hoher Darsberg, Neckarsteinnach",
+  "Hotelrestaurant Deidesheimer Hof",
+  "Telekom Ludwigshafen am Rhein",
+  "Restaurant Hohlbein, Frankfurt am Main",
+  "Restaurant Wolfsbrunnen, Heidelberg Schlierbach",
+  "Landesmusikakademie Rheinland-Pfalz und Bayern",
+  "Mawell Resort",
+  "Kranzplatzfest Wiesbaden 2023",
+  "Gut Leben am Morstein, Westhofen Worms 2023",
+  "Weingut Motzenbäcker, Ruppertsberg 2023",
+  "Restaurant Atable, Freinsheim 2023",
+  "Software AG Stiftung Darmstadt 2023",
+  "Restaurant Weinreich, Freinsheim 2023",
+  "BauAC Masterground Speyer 2023",
+  "Ella & Louis Mannheim Rosengarten, Saxomania 2023",
+  "BUGA 2023 Mannheim, Saxomania",
+  "Koblenzer Weihnachtsmarkt 2023",
+  "Night of the Power Ladies Show Bräustadel Heidelberg 2024",
+  "Weingut Schloss Janson Worms, Altes Ruderhaus Worms",
+  "Gutshof Ladenburg",
+  "Restaurant Lindbergh Flugplatz Mannheim, Halloween Party 2024",
+  "VH Management Stuttgart",
+  "Club Kaiser Skybar Heilbronn",
+  "Little Kitchen Limburg",
+  "Wein- und Sektkellerei Frankfurt Höchst"
+];
 
-        document.getElementById('AboutText').innerHTML = allText1;
-    }
-    
-    txtFile1.open("GET", "Texts/AboutText.txt", true);
-    txtFile1.send(null);
+document.getElementById("refList").innerHTML =
+  REFERENCES.map(x => `<li>${escapeHtml(x)}</li>`).join("");
+
+  const refList = document.getElementById("refList");
+  refList.innerHTML = REFERENCES.map(x => `<li>${escapeHtml(x)}</li>`).join("");
+
+  // === 3) Gallery (HIER: deine Dateinamen eintragen) ===
+  const IMAGES = [
+  "https://images.eventpeppers.com/sites/default/files/imagecache/lightbox-lg/images/7095/thomas-gross-161722.jpg",
+  "https://images.eventpeppers.com/sites/default/files/imagecache/lightbox-lg/images/7095/thomas-gross-161723.jpg",
+  "https://images.eventpeppers.com/sites/default/files/imagecache/lightbox-lg/images/7095/thomas-gross-161724.jpg",
+  "https://images.eventpeppers.com/sites/default/files/imagecache/lightbox-lg/images/7095/thomas-gross-161725.jpg",
+  "https://images.eventpeppers.com/sites/default/files/imagecache/lightbox-lg/images/7095/thomas-gross-161726.jpg",
+  "https://images.eventpeppers.com/sites/default/files/imagecache/lightbox-lg/images/7095/thomas-gross-161727.jpg",
+  "https://images.eventpeppers.com/sites/default/files/imagecache/lightbox-lg/images/7095/thomas-gross-161728.jpg",
+];
+
+const gallery = document.getElementById("gallery");
+gallery.innerHTML = IMAGES.map((src,i) =>
+  `<button class="gItem" type="button" data-img="${src}" aria-label="Foto ${i+1} öffnen">
+     <img src="${src}" alt="Foto ${i+1}" loading="lazy" referrerpolicy="no-referrer">
+   </button>`
+).join("");
+
+
+  // === 4) Videos (HIER: YouTube IDs + Titel) ===
+  // (IDs bekommst du aus https://www.youtube.com/watch?v=VIDEO_ID)
+  const VIDEOS = [
+    { id: "Ab6gMr46K5g", title: "Smooth Background" },
+    { id: "P8z3xW-GZko", title: "Foolin`around" },
+    { id: "az7V8lqP3cI", title: "Jammin `" },
+    { id: "pwL8lBAmogY", title: "Roof Top Jam" },
+  ];
+
+  const videosEl = document.getElementById("videos");
+  videosEl.innerHTML = VIDEOS.map(v => {
+    const thumb = `https://i.ytimg.com/vi/${v.id}/hqdefault.jpg`;
+    return `
+      <div class="videoCard">
+        <div class="videoThumb" data-youtube="${v.id}">
+          <img src="${thumb}" alt="${escapeHtml(v.title)}">
+        </div>
+        <div class="videoTitle">${escapeHtml(v.title)}</div>
+      </div>
+    `;
+  }).join("");
+
+  // click-to-load (YouTube-nocookie)
+  videosEl.addEventListener("click", (e) => {
+    const t = e.target.closest("[data-youtube]");
+    if (!t) return;
+    const id = t.getAttribute("data-youtube");
+    t.outerHTML = `
+      <iframe
+        width="100%" height="220"
+        style="border:0; display:block;"
+        src="https://www.youtube-nocookie.com/embed/${id}?rel=0"
+        title="YouTube Video"
+        loading="lazy"
+        allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+        allowfullscreen>
+      </iframe>
+    `;
+  });
+
+  function escapeHtml(s){
+    return String(s ?? "").replace(/[&<>"']/g, m => ({
+      "&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#039;"
+    }[m]));
+  }
+
+  const lb = document.getElementById("lightbox");
+const lbImg = document.getElementById("lightboxImg");
+
+function openLb(src){
+  lbImg.src = src;
+  lb.classList.add("isOpen");
+  lb.setAttribute("aria-hidden", "false");
+  document.body.style.overflow = "hidden";
+}
+
+function closeLb(){
+  lb.classList.remove("isOpen");
+  lb.setAttribute("aria-hidden", "true");
+  lbImg.src = "";
+  document.body.style.overflow = "";
+}
+
+document.getElementById("gallery").addEventListener("click", (e) => {
+  const btn = e.target.closest("[data-img]");
+  if (!btn) return;
+  openLb(btn.getAttribute("data-img"));
+});
+
+lb.addEventListener("click", (e) => {
+  if (e.target.classList.contains("lightbox__bg") || e.target.classList.contains("lightbox__close")) {
+    closeLb();
+  }
+});
+
+window.addEventListener("keydown", (e) => {
+  if (e.key === "Escape" && lb.classList.contains("isOpen")) closeLb();
+});
+
 </script>
+

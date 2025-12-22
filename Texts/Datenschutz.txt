@@ -1,0 +1,95 @@
+Datenschutzerklärung
+1. Datenschutz auf einen Blick
+
+Der Schutz Ihrer persönlichen Daten ist mir ein wichtiges Anliegen. Die folgenden Hinweise geben einen einfachen Überblick darüber, was mit Ihren personenbezogenen Daten passiert, wenn Sie diese Website besuchen.
+
+Personenbezogene Daten sind alle Daten, mit denen Sie persönlich identifiziert werden können.
+
+2. Verantwortlicher
+
+Verantwortlich für die Datenverarbeitung auf dieser Website ist:
+
+Thommysax
+Thomas Groß
+Rheinhorststr. 65
+67071 Ludwigshafen
+
+Telefon: +49 176 36621250
+E-Mail: info@thommysax.de
+
+3. Erhebung und Speicherung personenbezogener Daten
+a) Beim Besuch der Website
+
+Beim Aufrufen dieser Website werden durch den Hosting-Provider automatisch Informationen erfasst und in sogenannten Server-Logfiles gespeichert. Diese sind z. B.:
+
+IP-Adresse
+
+Datum und Uhrzeit der Anfrage
+
+aufgerufene Seite/Datei
+
+Browsertyp und -version
+
+verwendetes Betriebssystem
+
+Diese Daten dienen ausschließlich der technischen Bereitstellung und Sicherheit der Website. Eine Zusammenführung dieser Daten mit anderen Datenquellen findet nicht statt.
+
+Rechtsgrundlage: Art. 6 Abs. 1 lit. f DSGVO
+
+b) Kontaktaufnahme
+
+Wenn Sie mich per E-Mail oder Telefon kontaktieren, werden Ihre Angaben (z. B. Name, E-Mail-Adresse, Inhalt der Anfrage) gespeichert, um Ihre Anfrage zu bearbeiten.
+
+Diese Daten gebe ich nicht ohne Ihre Einwilligung weiter.
+
+Rechtsgrundlage: Art. 6 Abs. 1 lit. b DSGVO
+
+4. Cookies
+
+Diese Website verwendet keine Cookies zur Analyse oder zu Werbezwecken.
+Es kommen ausschließlich technisch notwendige Funktionen zum Einsatz.
+
+5. Einbindung externer Inhalte
+a) Social Media (Instagram, YouTube)
+
+Auf dieser Website sind Links bzw. eingebettete Inhalte von sozialen Netzwerken wie Instagram und YouTube enthalten.
+
+Beim Anklicken dieser Links oder beim Abspielen von eingebetteten Inhalten können personenbezogene Daten (z. B. IP-Adresse) an den jeweiligen Anbieter übertragen werden. Darauf habe ich keinen Einfluss.
+
+Weitere Informationen finden Sie in den Datenschutzerklärungen der jeweiligen Anbieter:
+
+Instagram: https://privacycenter.instagram.com
+
+YouTube (Google): https://policies.google.com/privacy
+
+6. Ihre Rechte
+
+Sie haben jederzeit das Recht:
+
+Auskunft über Ihre gespeicherten personenbezogenen Daten zu erhalten
+
+Berichtigung unrichtiger Daten zu verlangen
+
+Löschung Ihrer Daten zu verlangen, sofern keine gesetzliche Aufbewahrungspflicht besteht
+
+Einschränkung der Verarbeitung zu verlangen
+
+der Verarbeitung Ihrer Daten zu widersprechen
+
+Datenübertragbarkeit zu verlangen
+
+Außerdem haben Sie das Recht, sich bei einer Aufsichtsbehörde zu beschweren.
+
+7. Widerruf Ihrer Einwilligung
+
+Viele Datenverarbeitungsvorgänge sind nur mit Ihrer ausdrücklichen Einwilligung möglich. Diese können Sie jederzeit widerrufen. Eine formlose Mitteilung per E-Mail genügt.
+
+8. SSL- bzw. TLS-Verschlüsselung
+
+Diese Website nutzt aus Sicherheitsgründen eine SSL- bzw. TLS-Verschlüsselung.
+Eine verschlüsselte Verbindung erkennen Sie an „https://“ in der Adresszeile Ihres Browsers.
+
+9. Aktualität und Änderung dieser Datenschutzerklärung
+
+Diese Datenschutzerklärung ist aktuell gültig und hat den Stand [Datum einsetzen, z. B. März 2025].
+Durch Weiterentwicklung der Website oder aufgrund geänderter gesetzlicher Vorgaben kann eine Anpassung erforderlich werden.
