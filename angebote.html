@@ -1,0 +1,348 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Thommysax – Angebote</title>
+
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+  <!-- HEADER -->
+  <header class="header">
+    <div class="container header__inner">
+      <a class="brand" href="index.html">
+        <img class="brand__logo" src="Resources/Logo.png" alt="Thommysax Logo" />
+        <span class="brand__name">THOMMYSAX</span>
+      </a>
+
+      <button class="burger" aria-label="Menü öffnen" aria-expanded="false" data-burger>
+        <span></span><span></span><span></span>
+      </button>
+
+      <nav class="nav" data-nav>
+        <a class="nav__link" href="index.html">Home</a>
+        <a class="nav__link" href="about.html">Über mich</a>
+        <a class="nav__link nav__link--active" href="angebote.html">Angebote</a>
+        <a class="nav__link" href="media.html">Media</a>
+        <a class="nav__link" href="contact.html">Kontakt</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- MAIN -->
+  <main class="main">
+
+    <!-- HERO / Header -->
+    <section class="section section--tight">
+      <div class="container">
+        <h1 class="section-title">Angebote</h1>
+        <p class="section-subtitle">
+          Wähle den passenden Bereich – Event-Booking oder Beratung für Saxophonisten.
+        </p>
+
+        <!-- Umschalter -->
+        <div class="panel" style="margin-top:1.1rem;">
+          <div class="panel__head" style="gap:.6rem; flex-wrap:wrap;">
+            <div>
+              <div style="font-weight:900; margin-bottom:.25rem;">Was suchst du?</div>
+              <div class="muted" style="line-height:1.5;">
+                Mit einem Klick zeige ich dir die passenden Pakete.
+              </div>
+            </div>
+
+            <div style="display:flex; gap:.6rem; flex-wrap:wrap; justify-content:flex-end;">
+              <button class="btn btn--primary" type="button" id="btnEvent">Ich plane ein Event und suche musikalische Begleitung</button>
+              <button class="btn btn--ghost" type="button" id="btnSax">Ich bin Saxophonist und will mein Sxophon-Spiel verbessern</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- EVENT SECTION -->
+    <section class="section" id="eventSection">
+      <div class="container">
+
+        <div class="panel">
+          <div class="panel__head">
+            <h2 class="panel__title">Live-Sax für Events, Hochzeiten & Firmenfeiern</h2>
+            <a class="btn btn--primary" href="contact.html">Jetzt anfragen</a>
+          </div>
+
+          <div class="acc__body" style="padding-top:.2rem;">
+            <p style="margin:0 0 .9rem;">
+              Ich biete loungige, jazzige und gediegene Hintergrundmusik für Sektempfänge, Hochzeiten und Firmenfeiern.
+              Mithilfe einer professionellen Beschallungsanlage und hochwertigen Playalongs entsteht ein stilvolles „Bandgefühl“:
+              Melodie und jazzige Improvisation wechseln sich ab, ohne aufdringlich zu sein – genau richtig für elegante Events.
+            </p>
+
+            <p style="margin:0;">
+              Bei Bedarf mikrofoniert (inkl. Hall-/Soundeffekte) – für eine warme Klangwelt und eine besonders edle Atmosphäre.
+            </p>
+          </div>
+        </div>
+
+        <div class="panel" style="margin-top:1.2rem;">
+          <div class="panel__head">
+            <h3 class="panel__title">Pakete</h3>
+            <div class="muted">inkl. Aufbau der Technik & Fahrtkosten</div>
+          </div>
+
+          <div class="events" style="padding-top:.9rem;">
+            <!-- Paket 1 -->
+            <article class="event">
+              <div class="event__top">
+                <div class="event__date">Paket 1 – Saxophon mit Anlage</div>
+                <div class="event__time">1 Stunde</div>
+              </div>
+              <div class="event__title">450 €</div>
+              <div class="event__sub">Ideal für Sektempfang oder kurze Loungesets.</div>
+            </article>
+
+            <!-- Paket 2 -->
+            <article class="event">
+              <div class="event__top">
+                <div class="event__date">Paket 2 – Saxophon mit Anlage</div>
+                <div class="event__time">2 Stunden</div>
+              </div>
+              <div class="event__title">700 €</div>
+              <div class="event__sub">Perfekt für Empfang + Dinner oder längere Begleitung.</div>
+            </article>
+
+            <!-- Paket 3 -->
+            <article class="event">
+              <div class="event__top">
+                <div class="event__date">Paket 3 – Saxophon mit Anlage</div>
+                <div class="event__time">3 Stunden</div>
+              </div>
+              <div class="event__title">1.050 €</div>
+              <div class="event__sub">Für Events mit mehreren Phasen (Empfang, Dinner, Ausklang).</div>
+            </article>
+
+            <div class="events__empty" style="margin-top:.25rem;">
+              <strong>Verlängerung:</strong> Jede weitere Stunde: <strong>100 €</strong><br/>
+              Üblicherweise spiele ich 2–3 Stunden mit kleinen Erholungspausen.
+            </div>
+          </div>
+
+          <div style="display:flex; gap:.6rem; flex-wrap:wrap; margin-top:1rem;">
+            <a class="btn btn--primary" href="contact.html">Verfügbarkeit anfragen</a>
+            <a class="btn btn--ghost" href="media.html">Hörproben ansehen</a>
+          </div>
+        </div>
+
+        <div class="panel" style="margin-top:1.2rem;">
+          <div class="panel__head">
+            <h3 class="panel__title">Optional: DJ-Leistungen</h3>
+            <div class="muted">ab 100 € / Stunde</div>
+          </div>
+          <div class="acc__body" style="padding-top:.2rem;">
+            <p style="margin:0;">
+              Auf Wunsch ergänze ich dein Event zusätzlich mit DJ-Leistung – ideal als Übergang nach der Live-Musik
+              oder für den späteren Abend.
+            </p>
+          </div>
+        </div>
+
+        <div class="panel" style="margin-top:1.2rem;">
+          <div class="panel__head">
+            <h3 class="panel__title">Ablauf & Abstimmung</h3>
+          </div>
+
+          <div class="acc__body" style="padding-top:.2rem;">
+            <ul class="niceList">
+              <li>Kurzes telefonisches Vorgespräch (Wunsch-Setup, Dresscode, Stimmung, Zeitplan)</li>
+              <li>Schriftliche Bestätigung / Vertrag für einen klaren Ablauf</li>
+              <li>Aufbau & Soundcheck vor Ort (je nach Location rechtzeitig vor Beginn)</li>
+            </ul>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- SAX SECTION -->
+    <section class="section" id="saxSection" style="display:none;">
+      <div class="container">
+
+        <div class="panel">
+          <div class="panel__head">
+            <h2 class="panel__title">Beratung & Coaching für Saxophonisten</h2>
+            <a class="btn btn--primary" href="contact.html">Anfrage stellen</a>
+          </div>
+
+          <div class="acc__body" style="padding-top:.2rem;">
+            <p style="margin:0 0 .9rem;">
+              Kein klassischer Musikschulunterricht – sondern ein hybrides Experten- & Beratungsmodell für fortgeschrittene
+              Saxophonisten, die ihren Sound schärfen, professionell auftreten und klar „buchbar“ werden wollen.
+            </p>
+            <p style="margin:0;">
+              Online via Zoom. Fokus: Soundidentität, Setup-Kompetenz, Stil-Readiness und Profilklarheit.
+            </p>
+          </div>
+        </div>
+
+        <div class="panel" style="margin-top:1.2rem;">
+          <div class="panel__head">
+            <h3 class="panel__title">Sound- & Profilanalyse für Saxophonisten</h3>
+            <div class="muted">300–600 € · 1–2 Sitzungen à 90 Minuten</div>
+          </div>
+
+          <div class="acc__body" style="padding-top:.2rem;">
+            <div class="muted" style="margin-bottom:.6rem;">
+              Zielgruppe: fortgeschrittene Saxophonisten, Studierende kurz vor dem Markt, Big-Band-Spieler
+            </div>
+
+            <ul class="niceList">
+              <li><strong>Sound DNA:</strong> Was hört man wirklich – und warum?</li>
+              <li><strong>Setup-Analyse:</strong> Energieökonomie, Mundstück, Blatt, Ansatz</li>
+              <li><strong>Stil-Readiness:</strong> modern, funktional, traditionell (kontextfähig)</li>
+              <li><strong>Profil:</strong> Satzspieler vs. Solistenprofil</li>
+            </ul>
+
+            <div style="display:flex; gap:.6rem; flex-wrap:wrap; margin-top:1rem;">
+              <a class="btn btn--primary" href="contact.html">Analyse anfragen</a>
+              <a class="btn btn--ghost" href="media.html">Soundbeispiele</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="panel" style="margin-top:1.2rem;">
+          <div class="panel__head">
+            <h3 class="panel__title">Workshop: „Warum du gut spielst – aber nicht gebucht wirst?”</h3>
+            <div class="muted">130 € · 1 Sitzung à 90 Minuten</div>
+          </div>
+
+          <div class="acc__body" style="padding-top:.2rem;">
+            <p style="margin:0 0 .8rem;">
+              Ein kompakter Online-Workshop, der die Lücke zwischen „gut spielen“ und „wirklich gebucht werden“ schließt.
+            </p>
+            <ul class="niceList">
+              <li>Stil-Positionierung: was du spielst vs. was der Markt versteht</li>
+              <li>Tenorsax-Sound: im Satz und als Solist funktionieren</li>
+              <li>Präsenz, Funktion, Kontext: klare musikalische Lesbarkeit</li>
+            </ul>
+
+            <div style="display:flex; gap:.6rem; flex-wrap:wrap; margin-top:1rem;">
+              <a class="btn btn--primary" href="contact.html">Workshop anfragen</a>
+              <a class="btn btn--ghost" href="about.html">Über mich</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="panel" style="margin-top:1.2rem;">
+          <div class="panel__head">
+            <h3 class="panel__title">So läuft’s ab</h3>
+          </div>
+          <div class="acc__body" style="padding-top:.2rem;">
+            <ul class="niceList">
+              <li>Kurzer Intake (Ziel, aktuelles Setup, Audio-Beispiele falls vorhanden)</li>
+              <li>Zoom-Session(s) mit klaren Action-Steps</li>
+              <li>Optional: Follow-up / zweite Sitzung zur Feinkorrektur</li>
+            </ul>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container footer__grid">
+      <div class="footer__col">
+        <img class="footer__logo" src="Resources/Logo.png" alt="Thommysax Logo" />
+        <p class="footer__text">
+          Live-Sax für Events, Hochzeiten & Firmenfeiern.<br/>
+          Raum Stuttgart / Mannheim & Umgebung.
+        </p>
+      </div>
+
+      <div class="footer__col">
+        <div class="footer__title">Links</div>
+        <a class="footer__link" href="index.html">Home</a>
+        <a class="footer__link" href="about.html">Über mich</a>
+        <a class="footer__link" href="angebote.html">Angebote</a>
+        <a class="footer__link" href="media.html">Media</a>
+        <a class="footer__link" href="contact.html">Kontakt</a>
+      </div>
+
+      <div class="footer__col">
+        <div class="footer__title">Kontakt</div>
+        <a class="footer__link" href="mailto:info@thommysax.de">info@thommysax.de</a>
+        <a class="footer__link" href="tel:+4917636621250">+49 176 36621250</a>
+
+        <div class="footer__chips">
+          <a class="chip" target="_blank" href="https://www.instagram.com/tomtomsax88/" aria-label="Instagram">Instagram</a>
+          <a class="chip" target="_blank" href="https://www.youtube.com/@Thommysax88" aria-label="YouTube">YouTube</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="container footer__bottom">
+      <div class="footer__bottomLeft">
+        <div class="footer__copyright">
+          © <span id="year"></span> Thommysax
+        </div>
+        <div class="footer__powered">
+          This website is powered by <a class="footer__poweredLink" href="https://lipamusicservices.com" target="_blank" rel="noopener">LiPa Music Services</a>
+        </div>
+      </div>
+
+      <div class="footer__bottomlinks">
+        <a class="footer__small" href="impressum.html">Impressum</a>
+        <a class="footer__small" href="datenschutz.html">Datenschutz</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- SCRIPTS -->
+  <script>
+    // Jahr
+    document.getElementById("year").textContent = new Date().getFullYear();
+
+    // Burger Menü (wie bei dir)
+    const burger = document.querySelector("[data-burger]");
+    const nav = document.querySelector("[data-nav]");
+    burger.addEventListener("click", () => {
+      nav.classList.toggle("nav--open");
+      burger.setAttribute("aria-expanded", nav.classList.contains("nav--open"));
+    });
+
+    // Umschalter Event / Sax
+    const btnEvent = document.getElementById("btnEvent");
+    const btnSax   = document.getElementById("btnSax");
+    const secEvent = document.getElementById("eventSection");
+    const secSax   = document.getElementById("saxSection");
+
+    function show(which){
+      const isEvent = which === "event";
+      secEvent.style.display = isEvent ? "" : "none";
+      secSax.style.display   = isEvent ? "none" : "";
+
+      // Button Styles swap (primary/ghost)
+      btnEvent.classList.toggle("btn--primary", isEvent);
+      btnEvent.classList.toggle("btn--ghost", !isEvent);
+
+      btnSax.classList.toggle("btn--primary", !isEvent);
+      btnSax.classList.toggle("btn--ghost", isEvent);
+
+      // optional: merken
+      localStorage.setItem("angebote_mode", which);
+      // scroll leicht nach oben, damit man den Start sieht
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    }
+
+    btnEvent.addEventListener("click", () => show("event"));
+    btnSax.addEventListener("click", () => show("sax"));
+
+    // default: event (oder aus Speicher)
+    const saved = localStorage.getItem("angebote_mode");
+    show(saved === "sax" ? "sax" : "event");
+  </script>
+
+</body>
+</html>
