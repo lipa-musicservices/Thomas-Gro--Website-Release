@@ -1604,3 +1604,130 @@ footer.footer .footer__small:hover{
   object-fit: cover !important;
   object-position: top center !important; /* oben bündig */
 }
+
+/* Burger exakt vertikal zentrieren */
+.header__inner{
+  align-items: center; /* falls das irgendwo überschrieben wurde */
+}
+
+/* Button selbst sauber “mittig” machen */
+.burger{
+  height: 44px;              /* fix, damit er nicht “sackt” */
+  display: inline-flex;
+  align-items: center;        /* span-Stapel vertikal zentrieren */
+  justify-content: center;
+  padding: 0 12px;            /* statt 10px rundum */
+  margin: 0;                  /* kein unerwarteter Abstand */
+  line-height: 1;
+}
+
+/* die drei Linien kompakter und mittig */
+.burger span{
+  margin: 4px 0;              /* war 6px -> drückt nach unten */
+}
+
+/* optional: minimal nach oben “nudgen”, wenn du’s perfekt willst */
+@media (max-width: 899px){
+  .burger{ transform: translateY(-1px); }
+}
+/* Desktop: Burger immer aus */
+.burger{
+  display: none !important;
+}
+
+/* Mobile: Burger an + sauber zentriert */
+@media (max-width: 899px){
+  .burger{
+    display: inline-flex !important;
+    align-items: center;
+    justify-content: center;
+
+    width: 48px;
+    height: 44px;
+    padding: 0 12px;
+    margin: 0;
+    line-height: 1;
+  }
+
+  .burger span{
+    margin: 4px 0;
+  }
+}
+/* Desktop: Burger immer aus */
+.burger{ display:none !important; }
+
+/* Mobile: Burger als echter "3-Linien"-Button */
+@media (max-width: 899px){
+  .burger{
+    display:inline-flex !important;
+    align-items:center;
+    justify-content:center;
+
+    width:48px;
+    height:44px;
+    padding:0;
+    margin:0;
+
+    border-radius:14px;
+    border:1px solid rgba(255,255,255,.16);
+    background:rgba(255,255,255,.06);
+    cursor:pointer;
+
+    /* damit kein Text wie "---" sichtbar ist */
+    font-size:0 !important;
+    line-height:0 !important;
+    color:transparent !important;
+  }
+
+  /* Falls irgendwo content gesetzt wurde */
+  .burger::before,
+  .burger::after{ content:none !important; }
+
+  /* Die 3 Linien */
+  .burger span{
+    display:block !important;
+    width:22px !important;
+    height:2px !important;
+    background:#fff !important;
+    border-radius:2px !important;
+    opacity:.9 !important;
+    margin:4px 0 !important;
+  }
+}
+/* Desktop: Burger aus */
+.burger{ display:none !important; }
+
+/* Mobile: echter Burger (3 Balken übereinander) */
+@media (max-width: 899px){
+  .burger{
+    display:flex !important;
+    flex-direction:column !important;   /* <- DAS ist der entscheidende Fix */
+    align-items:center !important;
+    justify-content:center !important;
+    gap:6px !important;
+
+    width:48px !important;
+    height:44px !important;
+    padding:0 !important;
+    margin:0 !important;
+
+    border-radius:14px !important;
+    border:1px solid rgba(255,255,255,.16) !important;
+    background:rgba(255,255,255,.06) !important;
+    cursor:pointer !important;
+
+    font-size:0 !important;
+    line-height:0 !important;
+    color:transparent !important;
+  }
+
+  .burger span{
+    display:block !important;
+    width:22px !important;
+    height:2px !important;
+    background:#fff !important;
+    border-radius:2px !important;
+    opacity:.9 !important;
+    margin:0 !important;              /* <- keine Margins, wir nutzen gap */
+  }
+}
