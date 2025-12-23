@@ -1,16 +1,16 @@
 :root{
-  --bg0: #120404;
-  --bg1: #3a0a0a;
-  --bg2: #6a1414;
+  --bg0: #faf7f7;
+  --bg1: #f3eded;
+  --bg2: #eadfdf;
 
-  --text: #fff;
-  --muted: rgba(255,255,255,.78);
+  --text: #151515;
+  --muted: rgba(21,21,21,.68);
 
-  --panel: rgba(255,255,255,.06);
-  --panel2: rgba(255,255,255,.10);
-  --border: rgba(255,255,255,.10);
+  --panel: rgba(0,0,0,.03);
+  --panel2: rgba(0,0,0,.05);
+  --border: rgba(0,0,0,.10);
 
-  --shadow: 0 18px 40px rgba(0,0,0,.35);
+  --shadow: 0 18px 40px rgba(0,0,0,.12);
   --radius: 18px;
 
   --container: 1100px;
@@ -25,7 +25,7 @@ body{
 
   /* stabiler, durchgehender Background (kein “komischer Abschnitt”) */
   background:
-    radial-gradient(900px 650px at 20% 0%, #8f2a2a 0%, var(--bg2) 35%, var(--bg1) 70%, var(--bg0) 100%);
+    radial-gradient(900px 650px at 20% 0%, rgba(255,120,120,.22) 0%, var(--bg2) 35%, var(--bg1) 70%, var(--bg0) 100%);
 }
 
 /* Layout: Footer immer unten, ohne Overlap */
@@ -46,8 +46,8 @@ body{
   position: sticky;
   top: 0;
   z-index: 50;
-  background: rgba(10,0,0,.72);
-  border-bottom: 1px solid rgba(255,255,255,.08);
+  background: rgba(255,255,255,.85);
+  border-bottom: 1px solid rgba(0,0,0,.08);
   backdrop-filter: blur(10px);
 }
 .header__inner{
@@ -82,15 +82,15 @@ body{
   gap: .6rem;
 }
 .nav__link{
-  color: rgba(255,255,255,.85);
+  color: rgba(0,0,0,.78);
   text-decoration:none;
   padding: .55rem .8rem;
   border-radius: 999px;
   transition: 180ms ease;
 }
 .nav__link:hover{
-  background: rgba(255,255,255,.08);
-  color: #fff;
+  background: rgba(0,0,0,.06);
+  color: rgba(0,0,0,.92);
 }
 
 /* Burger */
@@ -99,8 +99,8 @@ body{
   width: 48px;
   height: 44px;
   border-radius: 14px;
-  border: 1px solid rgba(255,255,255,.16);
-  background: rgba(255,255,255,.06);
+  border: 1px solid rgba(0,0,0,.14);
+  background: rgba(0,0,0,.04);
   padding: 10px;
   cursor:pointer;
 }
@@ -108,7 +108,7 @@ body{
   display:block;
   height:2px;
   width:100%;
-  background:#fff;
+  background: rgba(0,0,0,.85);
   margin: 6px 0;
   border-radius: 2px;
   opacity:.9;
@@ -133,7 +133,7 @@ body{
 .hero__shade{
   position:absolute;
   inset:0;
-  background: linear-gradient(to top, rgba(0,0,0,.72), rgba(0,0,0,.20) 55%, rgba(0,0,0,.50));
+  background: linear-gradient(to top, rgba(0,0,0,.62), rgba(0,0,0,.18) 55%, rgba(0,0,0,.40));
 }
 .hero__content{
   position:relative;
@@ -150,14 +150,15 @@ body{
   line-height:1.05;
   letter-spacing:.07em;
   text-shadow: 0 12px 32px rgba(0,0,0,.45);
+  color:#fff;
 }
 .hero__text{
   margin: 1rem 0 0;
   max-width: 75ch;
-  color: rgba(255,255,255,.90);
+  color: rgba(255,255,255,.92);
   line-height:1.7;
-  background: rgba(0,0,0,.28);
-  border: 1px solid rgba(255,255,255,.10);
+  background: rgba(0,0,0,.18);
+  border: 1px solid rgba(255,255,255,.14);
   border-radius: var(--radius);
   padding: 1rem 1.1rem;
 }
@@ -191,12 +192,12 @@ body{
   transform: translateY(-1px);
 }
 .btn--ghost{
-  background: rgba(255,255,255,.08);
-  border-color: rgba(255,255,255,.14);
-  color: #fff;
+  background: rgba(0,0,0,.04);
+  border-color: rgba(0,0,0,.12);
+  color: rgba(0,0,0,.86);
 }
 .btn--ghost:hover{
-  background: rgba(255,255,255,.12);
+  background: rgba(0,0,0,.06);
 }
 
 /* Section */
@@ -231,13 +232,13 @@ body{
   justify-content: space-between;
   gap: 1rem;
   padding: 1.1rem 1.2rem .75rem;
-  border-bottom: 1px solid rgba(255,255,255,.08);
+  border-bottom: 1px solid rgba(0,0,0,.08);
 }
 .panel__title{
   font-weight: 800;
 }
 .panel__meta{
-  color: rgba(255,255,255,.75);
+  color: rgba(0,0,0,.55);
 }
 
 /* Events */
@@ -249,14 +250,14 @@ body{
 .events__empty{
   padding: 1rem;
   border-radius: 14px;
-  background: rgba(0,0,0,.18);
-  border: 1px solid rgba(255,255,255,.10);
-  color: rgba(255,255,255,.82);
+  background: rgba(0,0,0,.03);
+  border: 1px solid rgba(0,0,0,.10);
+  color: rgba(0,0,0,.70);
 }
 
 .event{
-  border: 1px solid rgba(255,255,255,.10);
-  background: rgba(0,0,0,.22);
+  border: 1px solid rgba(0,0,0,.10);
+  background: rgba(255,255,255,.70);
   border-radius: 16px;
   padding: .95rem 1rem;
 }
@@ -269,10 +270,10 @@ body{
 }
 .event__date{
   font-weight: 800;
-  color: rgba(255,255,255,.92);
+  color: rgba(0,0,0,.90);
 }
 .event__time{
-  color: rgba(255,255,255,.72);
+  color: rgba(0,0,0,.55);
 }
 .event__title{
   font-weight: 900;
@@ -281,14 +282,14 @@ body{
 }
 .event__sub{
   margin-top: .35rem;
-  color: rgba(255,255,255,.72);
+  color: rgba(0,0,0,.60);
   font-size: .95rem;
 }
 
 /* Footer */
 .footer{
-  background: #070707; /* NICHT transparent -> kein “komischer Background-Mix” */
-  border-top: 1px solid rgba(255,255,255,.08);
+  background: #f2f2f2; /* NICHT transparent -> kein “komischer Background-Mix” */
+  border-top: 1px solid rgba(0,0,0,.10);
 }
 .footer__grid{
   display:grid;
@@ -303,7 +304,7 @@ body{
 }
 .footer__text{
   margin:0;
-  color: rgba(255,255,255,.78);
+  color: rgba(0,0,0,.70);
   line-height:1.6;
 }
 .footer__title{
@@ -312,11 +313,11 @@ body{
 }
 .footer__link{
   display:block;
-  color: rgba(255,255,255,.85);
+  color: rgba(0,0,0,.72);
   text-decoration:none;
   margin: .35rem 0;
 }
-.footer__link:hover{ color: var(--accent); }
+.footer__link:hover{ color: rgba(0,0,0,.92); }
 .footer__chips{
   display:flex;
   flex-wrap: wrap;
@@ -327,13 +328,13 @@ body{
   display:inline-flex;
   padding: .45rem .7rem;
   border-radius: 999px;
-  background: rgba(255,255,255,.08);
-  border: 1px solid rgba(255,255,255,.14);
-  color:#fff;
+  background: rgba(0,0,0,.03);
+  border: 1px solid rgba(0,0,0,.10);
+  color: rgba(0,0,0,.78);
   text-decoration:none;
 }
 .chip:hover{
-  border-color: rgba(53,255,122,.55);
+  border-color: rgba(0,0,0,.14);
 }
 .footer__bottom{
   display:flex;
@@ -341,8 +342,8 @@ body{
   align-items:center;
   gap: 1rem;
   padding: 1rem 0 1.2rem;
-  border-top: 1px solid rgba(255,255,255,.08);
-  color: rgba(255,255,255,.65);
+  border-top: 1px solid rgba(0,0,0,.10);
+  color: rgba(0,0,0,.60);
   font-size: .95rem;
 }
 .footer__bottomlinks{
@@ -350,10 +351,10 @@ body{
   gap: 1rem;
 }
 .footer__small{
-  color: rgba(255,255,255,.70);
+  color: rgba(0,0,0,.65);
   text-decoration:none;
 }
-.footer__small:hover{ color: var(--accent); }
+.footer__small:hover{ color: rgba(0,0,0,.90); }
 
 /* Responsive */
 @media (max-width: 860px){
@@ -367,8 +368,8 @@ body{
     flex-direction: column;
     width: min(320px, calc(100% - 2rem));
     padding: .7rem;
-    background: rgba(10,0,0,.94);
-    border: 1px solid rgba(255,255,255,.12);
+    background: rgba(255,255,255,.96);
+    border: 1px solid rgba(0,0,0,.10);
     border-radius: 18px;
     box-shadow: var(--shadow);
   }
@@ -382,7 +383,7 @@ body{
 html, body { height: 100%; margin: 0; }
 
 body{
-  background: #120404;   /* stabil, kein wandernder Balken */
+  background: #faf7f7;   /* stabil, kein wandernder Balken */
   color: var(--text);
   font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", system-ui, sans-serif;
   min-height: 100vh;
@@ -407,7 +408,7 @@ body{
 }
 
 .section{
-  background: linear-gradient(to bottom, rgba(255,255,255,0.03), rgba(0,0,0,0.15));
+  background: linear-gradient(to bottom, rgba(0,0,0,0.02), rgba(0,0,0,0.04));
 }
 
 .footer__bottomright{
@@ -417,21 +418,21 @@ body{
 }
 
 .footer__powered{
-  color: rgba(255,255,255,.55);
+  color: rgba(0,0,0,.55);
   font-size: .92rem;
   white-space: nowrap;
 }
 
 .footer__poweredLink{
-  color: rgba(255,255,255,.75);
+  color: rgba(0,0,0,.72);
   text-decoration: none;
-  border-bottom: 1px solid rgba(255,255,255,.18);
+  border-bottom: 1px solid rgba(0,0,0,.18);
   padding-bottom: 1px;
 }
 
 .footer__poweredLink:hover{
-  color: var(--accent);
-  border-bottom-color: rgba(53,255,122,.55);
+  color: rgba(0,0,0,.92);
+  border-bottom-color: rgba(0,0,0,.28);
 }
 
 /* Mobile: alles untereinander, hübsch */
@@ -449,8 +450,8 @@ body{
   align-items: flex-start;
   gap: 1rem;
   padding: 1rem 0 1.3rem;
-  border-top: 1px solid rgba(255,255,255,.10);
-  color: rgba(255,255,255,.65);
+  border-top: 1px solid rgba(0,0,0,.10);
+  color: rgba(0,0,0,.60);
   font-size: .95rem;
 }
 
@@ -460,24 +461,24 @@ body{
 }
 
 .footer__copyright{
-  color: rgba(255,255,255,.70);
+  color: rgba(0,0,0,.70);
 }
 
 .footer__powered{
-  color: rgba(255,255,255,.55);
+  color: rgba(0,0,0,.55);
   font-size: .92rem;
 }
 
 .footer__poweredLink{
-  color: rgba(255,255,255,.75);
+  color: rgba(0,0,0,.72);
   text-decoration: none;
-  border-bottom: 1px solid rgba(255,255,255,.18);
+  border-bottom: 1px solid rgba(0,0,0,.18);
   padding-bottom: 1px;
 }
 
 .footer__poweredLink:hover{
-  color: var(--accent);
-  border-bottom-color: rgba(53,255,122,.55);
+  color: rgba(0,0,0,.92);
+  border-bottom-color: rgba(0,0,0,.28);
 }
 
 /* Mobile: Links untereinander */
@@ -504,16 +505,16 @@ body{
 .about__image img{
   width: 100%;
   border-radius: 22px;
-  border: 1px solid rgba(255,255,255,.12);
+  border: 1px solid rgba(0,0,0,.10);
   box-shadow: var(--shadow);
 }
 
 .about__text{
-  color: rgba(255,255,255,.9);
+  color: rgba(0,0,0,.86);
   line-height: 1.75;
   font-size: 1.05rem;
-  background: rgba(0,0,0,.22);
-  border: 1px solid rgba(255,255,255,.10);
+  background: rgba(255,255,255,.72);
+  border: 1px solid rgba(0,0,0,.10);
   border-radius: 22px;
   padding: 1.2rem 1.3rem;
 }
@@ -539,8 +540,8 @@ body{
   display: grid;
   place-items: center;
   padding: 2rem 1.4rem;
-  background: rgba(0,0,0,.22);
-  border: 1px solid rgba(255,255,255,.10);
+  background: rgba(255,255,255,.72);
+  border: 1px solid rgba(0,0,0,.10);
   border-radius: 18px;
 }
 
@@ -555,7 +556,7 @@ body{
 
 .embedGate__sub{
   margin: 0 0 1.1rem;
-  color: rgba(255,255,255,.78);
+  color: rgba(0,0,0,.66);
   line-height: 1.6;
 }
 
@@ -583,8 +584,8 @@ body{
 .profileSide{ display:grid; gap:1.2rem; }
 
 .profileCard{
-  background: rgba(0,0,0,.22);
-  border: 1px solid rgba(255,255,255,.10);
+  background: rgba(255,255,255,.72);
+  border: 1px solid rgba(0,0,0,.10);
   border-radius: 22px;
   padding: 1.2rem 1.3rem;
 }
@@ -596,7 +597,7 @@ body{
   gap:1rem;
 }
 
-.profileMeta{ color: rgba(255,255,255,.75); margin-top:.25rem; }
+.profileMeta{ color: rgba(0,0,0,.55); margin-top:.25rem; }
 
 .profileFacts{
   display:grid;
@@ -606,15 +607,15 @@ body{
 }
 
 .fact{
-  background: rgba(255,255,255,.06);
-  border: 1px solid rgba(255,255,255,.10);
+  background: rgba(0,0,0,.03);
+  border: 1px solid rgba(0,0,0,.10);
   border-radius: 16px;
   padding: .7rem .8rem;
   display:grid;
   gap:.15rem;
 }
 
-.fact__k{ color: rgba(255,255,255,.65); font-size: .92rem; }
+.fact__k{ color: rgba(0,0,0,.55); font-size: .92rem; }
 .fact__v{ font-weight: 800; }
 
 .badgeRow{ display:flex; flex-wrap:wrap; gap:.5rem; margin-top:1rem; }
@@ -622,9 +623,9 @@ body{
 .badge{
   padding:.35rem .65rem;
   border-radius:999px;
-  background: rgba(255,255,255,.08);
-  border:1px solid rgba(255,255,255,.12);
-  color: rgba(255,255,255,.9);
+  background: rgba(0,0,0,.03);
+  border:1px solid rgba(0,0,0,.10);
+  color: rgba(0,0,0,.80);
   font-size:.95rem;
 }
 
@@ -632,21 +633,21 @@ body{
 .ratingTop{ display:flex; align-items:baseline; gap:.8rem; }
 .ratingValue{ font-size:2.2rem; font-weight:900; }
 .stars{ font-size:1.15rem; letter-spacing:.08em; }
-.ratingSub{ color: rgba(255,255,255,.72); }
+.ratingSub{ color: rgba(0,0,0,.62); }
 
 .miniTitle{ font-weight:900; margin-bottom:.6rem; }
 .pillList{ list-style:none; padding:0; margin:0; display:flex; flex-wrap:wrap; gap:.5rem; }
 .pillList li{
   padding:.35rem .65rem;
   border-radius:999px;
-  background: rgba(255,255,255,.06);
-  border:1px solid rgba(255,255,255,.10);
-  color: rgba(255,255,255,.9);
+  background: rgba(0,0,0,.03);
+  border:1px solid rgba(0,0,0,.10);
+  color: rgba(0,0,0,.82);
   font-size:.95rem;
 }
 
 /* Panels */
-.panel{ background: rgba(0,0,0,.18); border:1px solid rgba(255,255,255,.10); border-radius: 22px; padding: 1rem; }
+.panel{ background: rgba(255,255,255,.72); border:1px solid rgba(0,0,0,.10); border-radius: 22px; padding: 1rem; }
 .panel__head{ display:flex; justify-content:space-between; align-items:center; margin-bottom: .8rem; }
 .panel__title{ margin:0; font-size:1.15rem; }
 
@@ -661,8 +662,8 @@ body{
   display:block;
   border-radius: 16px;
   overflow:hidden;
-  border: 1px solid rgba(255,255,255,.10);
-  background: rgba(255,255,255,.04);
+  border: 1px solid rgba(0,0,0,.10);
+  background: rgba(255,255,255,.72);
 }
 
 .gallery img{
@@ -682,8 +683,8 @@ body{
 .videoCard{
   border-radius: 18px;
   overflow:hidden;
-  border:1px solid rgba(255,255,255,.10);
-  background: rgba(255,255,255,.04);
+  border:1px solid rgba(0,0,0,.10);
+  background: rgba(255,255,255,.72);
 }
 
 .videoThumb{
@@ -706,23 +707,25 @@ body{
   content:"▶";
   position:absolute;
   font-size: 2.2rem;
-  background: rgba(0,0,0,.45);
-  border: 1px solid rgba(255,255,255,.18);
+  background: rgba(255,255,255,.72);
+  border: 1px solid rgba(0,0,0,.12);
   width: 56px;
   height: 56px;
   border-radius: 999px;
   display:grid;
   place-items:center;
+  color: rgba(0,0,0,.85);
 }
 
 .videoTitle{
   padding: .75rem .9rem;
   font-weight: 800;
+  color: rgba(0,0,0,.86);
 }
 
 /* Accordion */
 .acc{
-  border-top: 1px solid rgba(255,255,255,.10);
+  border-top: 1px solid rgba(0,0,0,.10);
   padding: .7rem 0;
 }
 .acc:first-child{ border-top: none; }
@@ -732,14 +735,14 @@ body{
   list-style:none;
 }
 .acc summary::-webkit-details-marker{ display:none; }
-.acc__body{ padding: .7rem 0 0; color: rgba(255,255,255,.88); line-height: 1.7; }
+.acc__body{ padding: .7rem 0 0; color: rgba(0,0,0,.86); line-height: 1.7; }
 
 .niceList{ margin:0; padding-left: 1.1rem; }
 .niceList--cols{
   columns: 2;
   column-gap: 2rem;
 }
-.muted{ color: rgba(255,255,255,.72); }
+.muted{ color: rgba(0,0,0,.62); }
 
 /* Responsive */
 @media (max-width: 900px){
@@ -763,7 +766,7 @@ body{
   background: transparent;
   border-radius: 16px;
   overflow:hidden;
-  border: 1px solid rgba(255,255,255,.10);
+  border: 1px solid rgba(0,0,0,.10);
   cursor: pointer;
 }
 
@@ -857,7 +860,7 @@ body{
 
 .acc{
   padding: .9rem 0;
-  border-top: 1px solid rgba(255,255,255,.10);
+  border-top: 1px solid rgba(0,0,0,.10);
 }
 .acc:first-child{
   border-top: none;
@@ -871,13 +874,13 @@ body{
 }
 
 .acc__body{
-  color: rgba(255,255,255,.88);
+  color: rgba(0,0,0,.86);
   line-height: 1.7;
 }
 
 .niceList{ margin:0; padding-left: 1.1rem; }
 .niceList--cols{ columns: 2; column-gap: 2rem; }
-.muted{ color: rgba(255,255,255,.72); }
+.muted{ color: rgba(0,0,0,.62); }
 
 @media (max-width: 900px){
   .niceList--cols{ columns: 1; }
@@ -887,10 +890,11 @@ body{
   font-size:1.6rem;
   font-weight:800;
   margin-bottom:.6rem;
+  color: rgba(0,0,0,.86);
 }
 
 .section-subtitle{
-  color:rgba(255,255,255,.7);
+  color:rgba(0,0,0,.62);
   margin-bottom:1.4rem;
 }
 
@@ -905,10 +909,11 @@ body{
       font-size: clamp(1.6rem, 3vw, 2.2rem);
       font-weight: 900;
       margin: 0 0 .5rem 0;
+      color: rgba(0,0,0,.86);
     }
     .section-subtitle {
       margin: 0 0 1.6rem 0;
-      color: rgba(255,255,255,.72);
+      color: rgba(0,0,0,.62);
       line-height: 1.6;
     }
 
@@ -919,11 +924,11 @@ body{
     }
 
     .panel {
-      border: 1px solid rgba(255,255,255,.10);
-      background: rgba(0,0,0,.35);
+      border: 1px solid rgba(0,0,0,.10);
+      background: rgba(255,255,255,.72);
       border-radius: 18px;
       padding: 1.2rem;
-      box-shadow: 0 16px 40px rgba(0,0,0,.35);
+      box-shadow: 0 16px 40px rgba(0,0,0,.12);
     }
 
     .videoGrid {
@@ -935,8 +940,8 @@ body{
     .videoCard {
       border-radius: 14px;
       overflow: hidden;
-      border: 1px solid rgba(255,255,255,.10);
-      background: rgba(0,0,0,.30);
+      border: 1px solid rgba(0,0,0,.10);
+      background: rgba(255,255,255,.72);
     }
 
     .videoFrame {
@@ -957,8 +962,8 @@ body{
     .igFrameWrap {
       border-radius: 14px;
       overflow: hidden;
-      border: 1px solid rgba(255,255,255,.10);
-      background: rgba(0,0,0,.30);
+      border: 1px solid rgba(0,0,0,.10);
+      background: rgba(255,255,255,.72);
     }
 
     .igFrameWrap iframe {
@@ -984,8 +989,8 @@ body{
 }
 
 .igEmbedCard{
-  border: 1px solid rgba(255,255,255,.10);
-  background: rgba(0,0,0,.30);
+  border: 1px solid rgba(0,0,0,.10);
+  background: rgba(255,255,255,.72);
   border-radius: 14px;
   overflow: hidden;
   padding: .75rem;
@@ -1008,8 +1013,8 @@ body{
 
 /* --- Instagram: kompakte Embeds (croppen) --- */
 .igEmbedCard{
-  border: 1px solid rgba(255,255,255,.10);
-  background: rgba(0,0,0,.30);
+  border: 1px solid rgba(0,0,0,.10);
+  background: rgba(255,255,255,.72);
   border-radius: 14px;
   overflow: hidden;              /* wichtig: abschneiden */
   padding: 0;                    /* kein Innenabstand, sonst wächst es */
@@ -1040,10 +1045,10 @@ body{
    ========================= */
 
 footer.footer{
-  background: #0b0b0b;
-  color: rgba(255,255,255,.92);
+  background: #f2f2f2;
+  color: rgba(0,0,0,.82);
   padding: 3rem 0 1.5rem;
-  border-top: 1px solid rgba(255,255,255,.08);
+  border-top: 1px solid rgba(0,0,0,.10);
 }
 
 footer.footer .container{
@@ -1068,31 +1073,32 @@ footer.footer .footer__logo{
   height: auto;
   display: block;
   margin-bottom: .9rem;
-  filter: drop-shadow(0 6px 18px rgba(0,0,0,.4));
+  filter: drop-shadow(0 6px 18px rgba(0,0,0,.20));
 }
 
 footer.footer .footer__text{
   margin: 0;
   line-height: 1.55;
   font-size: 0.98rem;
-  color: rgba(255,255,255,.80);
+  color: rgba(0,0,0,.70);
 }
 
 footer.footer .footer__title{
   font-weight: 700;
   letter-spacing: .02em;
   margin: .2rem 0 .6rem;
+  color: rgba(0,0,0,.86);
 }
 
 footer.footer .footer__link{
   display: block;
-  color: rgba(255,255,255,.78);
+  color: rgba(0,0,0,.72);
   text-decoration: none;
   padding: .2rem 0;
 }
 
 footer.footer .footer__link:hover{
-  color: #fff;
+  color: rgba(0,0,0,.92);
   text-decoration: underline;
 }
 
@@ -1110,9 +1116,9 @@ footer.footer .chip{
   justify-content: center;
   padding: .45rem .85rem;
   border-radius: 999px;
-  border: 1px solid rgba(255,255,255,.14);
-  background: rgba(255,255,255,.04);
-  color: #fff;
+  border: 1px solid rgba(0,0,0,.10);
+  background: rgba(0,0,0,.03);
+  color: rgba(0,0,0,.82);
   text-decoration: none;
   font-size: .95rem;
   white-space: nowrap;
@@ -1120,15 +1126,15 @@ footer.footer .chip{
 }
 
 footer.footer .chip:hover{
-  background: rgba(255,255,255,.08);
-  border-color: rgba(255,255,255,.22);
+  background: rgba(0,0,0,.05);
+  border-color: rgba(0,0,0,.14);
 }
 
 /* Bottom Bar */
 footer.footer .footer__bottom{
   margin-top: 2rem;
   padding-top: 1.2rem;
-  border-top: 1px solid rgba(255,255,255,.08);
+  border-top: 1px solid rgba(0,0,0,.10);
   display: flex;
   align-items: flex-end;
   justify-content: space-between;
@@ -1143,16 +1149,16 @@ footer.footer .footer__bottomLeft{
 
 footer.footer .footer__copyright{
   font-size: .95rem;
-  color: rgba(255,255,255,.85);
+  color: rgba(0,0,0,.70);
 }
 
 footer.footer .footer__powered{
   font-size: .85rem;
-  color: rgba(255,255,255,.62);
+  color: rgba(0,0,0,.55);
 }
 
 footer.footer .footer__poweredLink{
-  color: rgba(255,255,255,.85);
+  color: rgba(0,0,0,.72);
   text-decoration: none;
 }
 
@@ -1169,13 +1175,13 @@ footer.footer .footer__bottomlinks{
 }
 
 footer.footer .footer__small{
-  color: rgba(255,255,255,.72);
+  color: rgba(0,0,0,.65);
   text-decoration: none;
   font-size: .95rem;
 }
 
 footer.footer .footer__small:hover{
-  color: #fff;
+  color: rgba(0,0,0,.90);
   text-decoration: underline;
 }
 
@@ -1223,8 +1229,8 @@ footer.footer .footer__small:hover{
 .videoCard{
   border-radius: 18px;
   overflow: hidden;
-  border: 1px solid rgba(255,255,255,0.08);
-  background: rgba(0,0,0,0.25);
+  border: 1px solid rgba(0,0,0,0.10);
+  background: rgba(255,255,255,0.72);
 }
 
 /* Das ist der wichtigste Fix */
@@ -1282,24 +1288,24 @@ footer.footer .footer__small:hover{
   padding: 10px 12px;
   border-radius: 999px;
 
-  color: rgba(255,255,255,0.92);
+  color: rgba(0,0,0,0.86);
   text-decoration: none;
   font-weight: 600;
   font-size: 13px;
   letter-spacing: .2px;
 
-  background: rgba(0,0,0,0.55);
-  border: 1px solid rgba(255,255,255,0.16);
+  background: rgba(255,255,255,0.72);
+  border: 1px solid rgba(0,0,0,0.12);
   backdrop-filter: blur(10px);
 
-  box-shadow: 0 10px 30px rgba(0,0,0,0.35);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.12);
   transition: transform .15s ease, background .15s ease, border-color .15s ease;
 }
 
 .videoCta:hover{
   transform: translateY(-1px);
-  background: rgba(0,0,0,0.68);
-  border-color: rgba(255,255,255,0.24);
+  background: rgba(255,255,255,0.82);
+  border-color: rgba(0,0,0,0.16);
 }
 
 .videoCta:active{
@@ -1307,7 +1313,7 @@ footer.footer .footer__small:hover{
 }
 
 .videoCta:focus-visible{
-  outline: 2px solid rgba(255,255,255,0.65);
+  outline: 2px solid rgba(0,0,0,0.35);
   outline-offset: 3px;
 }
 
@@ -1318,8 +1324,8 @@ footer.footer .footer__small:hover{
   height: 16px;
   display: inline-block;
   border-radius: 4px;
-  background: rgba(255,255,255,0.12);
-  box-shadow: inset 0 0 0 1px rgba(255,255,255,0.18);
+  background: rgba(0,0,0,0.10);
+  box-shadow: inset 0 0 0 1px rgba(0,0,0,0.16);
   /* simple play triangle */
   clip-path: polygon(35% 25%, 35% 75%, 78% 50%);
 }
@@ -1345,9 +1351,9 @@ footer.footer .footer__small:hover{
   font-size: 13px;
   letter-spacing: .2px;
 
-  color: rgba(255,255,255,0.92);
-  background: rgba(255,255,255,0.06);
-  border: 1px solid rgba(255,255,255,0.14);
+  color: rgba(0,0,0,0.86);
+  background: rgba(0,0,0,0.03);
+  border: 1px solid rgba(0,0,0,0.10);
   backdrop-filter: blur(10px);
 
   transition: transform .15s ease, background .15s ease, border-color .15s ease;
@@ -1355,8 +1361,8 @@ footer.footer .footer__small:hover{
 
 .videoLink:hover{
   transform: translateY(-1px);
-  background: rgba(255,255,255,0.09);
-  border-color: rgba(255,255,255,0.22);
+  background: rgba(0,0,0,0.05);
+  border-color: rgba(0,0,0,0.14);
 }
 
 .videoLink:active{
@@ -1364,7 +1370,7 @@ footer.footer .footer__small:hover{
 }
 
 .videoLink:focus-visible{
-  outline: 2px solid rgba(255,255,255,0.6);
+  outline: 2px solid rgba(0,0,0,0.35);
   outline-offset: 3px;
 }
 
@@ -1376,8 +1382,8 @@ footer.footer .footer__small:hover{
   display: inline-block;
 
   border-radius: 4px;
-  background: rgba(255,255,255,0.10);
-  box-shadow: inset 0 0 0 1px rgba(255,255,255,0.16);
+  background: rgba(0,0,0,0.10);
+  box-shadow: inset 0 0 0 1px rgba(0,0,0,0.16);
 
   clip-path: polygon(35% 25%, 35% 75%, 78% 50%);
 }
@@ -1400,7 +1406,7 @@ footer.footer .footer__small:hover{
     margin: 0;
 
     /* dein Look */
-    background: rgba(0,0,0,0.92);
+    background: rgba(255,255,255,0.96);
     backdrop-filter: blur(10px);
 
     /* damit es über allem liegt */
@@ -1417,7 +1423,8 @@ footer.footer .footer__small:hover{
     gap: 14px;
 
     /* optional: wenn du Schatten willst */
-    box-shadow: 0 20px 60px rgba(0,0,0,0.55);
+    box-shadow: 0 20px 60px rgba(0,0,0,0.14);
+    border-bottom: 1px solid rgba(0,0,0,0.10);
   }
 
   /* wenn offen */
@@ -1432,6 +1439,9 @@ footer.footer .footer__small:hover{
     border-radius: 12px;
     text-align: left;          /* oder center wenn du willst */
     font-size: 18px;
+    background: rgba(0,0,0,.03);
+    border: 1px solid rgba(0,0,0,.08);
+    color: rgba(0,0,0,.86);
   }
 
   /* Burger immer über nav klickbar lassen (zum schließen) */
@@ -1498,7 +1508,7 @@ footer.footer .footer__small:hover{
   width: 100%;
   height: clamp(320px, 65vh, 640px);
   overflow: hidden;
-  border-bottom: 1px solid rgba(255,255,255,.08);
+  border-bottom: 1px solid rgba(0,0,0,.08);
 }
 
 .hero__media img{
@@ -1539,7 +1549,7 @@ footer.footer .footer__small:hover{
   width: 100%;
   height: clamp(240px, 52vh, 520px); /* vorher war es einfach zu brutal hoch */
   overflow: hidden;
-  border-bottom: 1px solid rgba(255,255,255,.08);
+  border-bottom: 1px solid rgba(0,0,0,.08);
 }
 
 .hero__media img{
@@ -1619,11 +1629,14 @@ footer.footer .footer__small:hover{
   padding: 0 12px;            /* statt 10px rundum */
   margin: 0;                  /* kein unerwarteter Abstand */
   line-height: 1;
+  border: 1px solid rgba(0,0,0,.14);
+  background: rgba(0,0,0,.04);
 }
 
 /* die drei Linien kompakter und mittig */
 .burger span{
   margin: 4px 0;              /* war 6px -> drückt nach unten */
+  background: rgba(0,0,0,.85);
 }
 
 /* optional: minimal nach oben “nudgen”, wenn du’s perfekt willst */
@@ -1647,10 +1660,13 @@ footer.footer .footer__small:hover{
     padding: 0 12px;
     margin: 0;
     line-height: 1;
+    border: 1px solid rgba(0,0,0,.14);
+    background: rgba(0,0,0,.04);
   }
 
   .burger span{
     margin: 4px 0;
+    background: rgba(0,0,0,.85);
   }
 }
 /* Desktop: Burger immer aus */
@@ -1669,8 +1685,8 @@ footer.footer .footer__small:hover{
     margin:0;
 
     border-radius:14px;
-    border:1px solid rgba(255,255,255,.16);
-    background:rgba(255,255,255,.06);
+    border:1px solid rgba(0,0,0,.14);
+    background:rgba(0,0,0,.04);
     cursor:pointer;
 
     /* damit kein Text wie "---" sichtbar ist */
@@ -1688,20 +1704,98 @@ footer.footer .footer__small:hover{
     display:block !important;
     width:22px !important;
     height:2px !important;
-    background:#fff !important;
+    background: rgba(0,0,0,.85) !important;
     border-radius:2px !important;
     opacity:.9 !important;
     margin:4px 0 !important;
   }
 }
+/* FIX: "THOMMYSAX" (Hero/Brand Text) auf index in Light Mode dunkel */
+.hero__kicker,
+.hero__title,
+.hero__text{
+  color: #151515 !important;
+  text-shadow: none !important;
+}
+
+/* Falls der Text in einem Panel liegt (hero__panel), mach das Panel heller */
+.hero__panel,
+.hero__text{
+  background: rgba(255,255,255,.78) !important;
+  border-color: rgba(0,0,0,.10) !important;
+}
+
+/* Optional: wenn dein hero__shade noch alles abdunkelt -> etwas entschärfen */
+.hero__shade{
+  background: linear-gradient(to top, rgba(255,255,255,.72), rgba(255,255,255,.20) 55%, rgba(255,255,255,.55)) !important;
+}
+/* =========================
+   ABOUT / MEDIA: Video-Cards – Text sauber unter dem Video
+   (ans Ende der style.css)
+   ========================= */
+
+/* Karte: vertikal stapeln */
+.videoCard{
+  display: flex !important;
+  flex-direction: column !important;
+  overflow: hidden;               /* Radius sauber */
+}
+
+/* Thumb soll NUR das Video sein */
+.videoThumb{
+  height: auto !important;
+  aspect-ratio: 9 / 16;           /* bei deinen Hochkant-Clips */
+  overflow: hidden;
+  border-bottom: 1px solid rgba(0,0,0,.10);
+}
+
+/* falls du statt img ein iframe nutzt: */
+.videoThumb iframe,
+.videoThumb video,
+.videoThumb img{
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+}
+
+/* Textbereich unterhalb */
+.videoTitle{
+  padding: 12px 14px !important;
+  font-weight: 800;
+  font-size: 14px;
+  line-height: 1.35;
+  color: var(--text) !important;
+  background: rgba(255,255,255,.78);  /* light mode freundlich */
+}
+
+/* Wenn du unter dem Titel noch Links/Meta hast */
+.videoMeta{
+  padding: 0 14px 14px !important;
+  background: rgba(255,255,255,.78);
+}
+
+/* Falls irgendwo noch so ein Overlay-Link/Chip rumliegt, der unten reinpfuscht */
+.videoCta{
+  position: absolute;              /* darf bleiben */
+  max-width: calc(100% - 28px);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+/* =========================
+   BURGER FIX – 3 Linien wirklich untereinander
+   (GANZ ans Ende der style.css)
+   ========================= */
+
 /* Desktop: Burger aus */
 .burger{ display:none !important; }
 
-/* Mobile: echter Burger (3 Balken übereinander) */
+/* Mobile: Burger an + echtes Stack-Layout */
 @media (max-width: 899px){
   .burger{
     display:flex !important;
-    flex-direction:column !important;   /* <- DAS ist der entscheidende Fix */
+    flex-direction:column !important;   /* <- entscheidend */
     align-items:center !important;
     justify-content:center !important;
     gap:6px !important;
@@ -1712,22 +1806,32 @@ footer.footer .footer__small:hover{
     margin:0 !important;
 
     border-radius:14px !important;
-    border:1px solid rgba(255,255,255,.16) !important;
-    background:rgba(255,255,255,.06) !important;
+    border:1px solid rgba(0,0,0,.16) !important;
+    background:rgba(0,0,0,.04) !important;
+
     cursor:pointer !important;
 
+    /* falls irgendwo Text/Icons reingelaufen sind */
     font-size:0 !important;
     line-height:0 !important;
     color:transparent !important;
   }
 
-  .burger span{
+  /* wirklich NUR die 3 Balken */
+  .burger > span{
     display:block !important;
     width:22px !important;
     height:2px !important;
-    background:#fff !important;
+    background:rgba(0,0,0,.85) !important;
     border-radius:2px !important;
-    opacity:.9 !important;
-    margin:0 !important;              /* <- keine Margins, wir nutzen gap */
+    margin:0 !important;
+    padding:0 !important;
+  }
+
+  /* falls irgendein Pseudo-Element Mist macht */
+  .burger::before,
+  .burger::after{
+    content:none !important;
+    display:none !important;
   }
 }
