@@ -1,0 +1,159 @@
+<!-- =========================
+     jazz.html
+     ========================= -->
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Thommysax – Jazzprofil</title>
+
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+  <!-- HEADBAR INCLUDE -->
+<div data-include="headbar"></div>
+  <main class="main">
+
+    <!-- HERO / Header -->
+    <section class="section section--tight">
+      <div class="container">
+        <h1 class="section-title">Jazzprofil</h1>
+        <p class="section-subtitle">
+          Tenorsaxophon · moderner Jazz · Bigband · Improvisation
+        </p>
+
+        <div class="panel" style="margin-top:1.1rem;">
+          <div class="panel__head" style="gap:.6rem; flex-wrap:wrap;">
+            <div>
+              <div style="font-weight:900; margin-bottom:.25rem;">Raum für Klang. Raum für Zeit. Raum für Persönlichkeit.</div>
+              <div class="muted" style="line-height:1.5;">
+                Jazz ist für mich kein „Stil“, sondern eine Haltung: zuhören, reagieren, Verantwortung für den gemeinsamen Klang übernehmen.
+              </div>
+            </div>
+
+            <div style="display:flex; gap:.6rem; flex-wrap:wrap; justify-content:flex-end;">
+              <a class="btn btn--primary" href="contact.html">Jazz anfragen</a>
+              <a class="btn btn--ghost" href="media.html">Hörproben</a>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- CONTENT -->
+    <section class="section">
+      <div class="container">
+
+        <div class="panel">
+          <div class="panel__head">
+            <h2 class="panel__title">Mein Jazz-Sound</h2>
+          </div>
+
+          <div class="acc__body" style="padding-top:.2rem;">
+            <p style="margin:0 0 .9rem;">
+              Ich spiele Jazz, weil er Raum lässt. Raum für Klang, für Zeit, für Persönlichkeit.
+            </p>
+
+            <p style="margin:0 0 .9rem;">
+              Mein Spiel auf dem Tenorsaxophon ist geprägt von einem warmen, tragfähigen Ton, klarer Artikulation
+              und einer natürlichen Projektion – ohne Härte, ohne Überzeichnung. Ich bewege mich sicher zwischen
+              moderner Jazzsprache, Bigband-Ästhetik und freier Improvisation, immer mit Respekt vor dem musikalischen Kontext.
+            </p>
+
+            <p style="margin:0;">
+              Improvisation verstehe ich nicht als Selbstdarstellung, sondern als Dialog: mit der Band, mit dem Raum, mit dem Moment.
+              Ich suche Linien, die tragen, rhythmisch klar sind und sich organisch entwickeln – mit Tiefe, Kontrolle und innerer Ruhe.
+            </p>
+          </div>
+        </div>
+
+        <div class="panel" style="margin-top:1.2rem;">
+          <div class="panel__head">
+            <h3 class="panel__title">Was du bekommst</h3>
+            <div class="muted">klar, musikalisch, kontextfähig</div>
+          </div>
+
+          <div class="acc__body" style="padding-top:.2rem;">
+            <ul class="niceList">
+              <li>Warmer, tragfähiger Ton mit natürlicher Projektion</li>
+              <li>Rhythmisch klare Linien, organische Entwicklung</li>
+              <li>Improvisation als Dialog – nicht als „Solo-Show“</li>
+              <li>Sound, der verbindet statt dominiert</li>
+              <li>Flexibel von kleinem Ensemble bis Bigband</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="panel" style="margin-top:1.2rem;">
+          <div class="panel__head">
+            <h3 class="panel__title">Besetzungen & Einsatz</h3>
+            <div class="muted">international geprägt · offen für Kontexte</div>
+          </div>
+
+          <div class="acc__body" style="padding-top:.2rem;">
+            <p style="margin:0 0 .9rem;">
+              Meine musikalische Sprache orientiert sich an zeitgenössischem Jazz, ohne modisch zu sein – und bleibt
+              offen für unterschiedliche Besetzungen: vom kleinen Ensemble bis zur großen Bigband.
+            </p>
+
+            <ul class="niceList niceList--cols">
+              <li>Duo / Trio / Quartett</li>
+              <li>Jazz Combo / Session</li>
+              <li>Bigband (Section / Solist)</li>
+              <li>Gastsolist / Feature</li>
+              <li>Club / Konzert / Festival</li>
+              <li>Produktion / Aufnahme-Kontext</li>
+            </ul>
+
+            <div style="display:flex; gap:.6rem; flex-wrap:wrap; margin-top:1rem;">
+              <a class="btn btn--primary" href="contact.html">Anfrage senden</a>
+              <a class="btn btn--ghost" href="about.html">Über mich</a>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <!-- FOOTBAR INCLUDE -->
+
+  <div data-include="footbar"></div>
+
+  <script src="Fixedpages/include.js"></script>
+
+<script>
+(function () {
+  function bindBurger() {
+    const burger = document.querySelector("[data-burger]");
+    const nav = document.querySelector("[data-nav]");
+    if (!burger || !nav) return false;
+    if (burger.dataset.bound === "1") return true;
+
+    burger.dataset.bound = "1";
+    burger.addEventListener("click", (e) => {
+      e.preventDefault();
+      const willOpen = !nav.classList.contains("nav--open");
+      nav.classList.toggle("nav--open", willOpen);
+      burger.setAttribute("aria-expanded", String(willOpen));
+    });
+
+    return true;
+  }
+
+  if (bindBurger()) return;
+
+  let tries = 0;
+  const t = setInterval(() => {
+    tries++;
+    if (bindBurger() || tries > 60) clearInterval(t);
+  }, 50);
+})();
+</script>
+
+</body>
+</html>

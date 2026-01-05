@@ -1835,3 +1835,603 @@ footer.footer .footer__small:hover{
     display:none !important;
   }
 }
+
+/* =========================
+   NAV: Untermenü "Angebote"
+   ========================= */
+
+.navGroup{
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+/* Desktop Dropdown */
+.subnav{
+  position: absolute;
+  top: calc(100% + 10px);
+  left: 0;
+  min-width: 240px;
+  padding: 10px;
+
+  background: var(--panel2);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  box-shadow: var(--shadow);
+
+  display: none;
+  flex-direction: column;
+  gap: 6px;
+  z-index: 9999;
+}
+
+/* Öffnen bei Hover + Tastatur-Fokus */
+.navGroup:hover .subnav,
+.navGroup:focus-within .subnav{
+  display: flex;
+}
+
+.subnav__link{
+  display: block;
+  padding: 10px 12px;
+  border-radius: 12px;
+  text-decoration: none;
+  color: rgba(0,0,0,.82); /* wird im Dark überschrieben, wenn du Tokens nutzt */
+  background: rgba(0,0,0,.03);
+  border: 1px solid rgba(0,0,0,.06);
+  transition: 160ms ease;
+  font-weight: 600;
+}
+
+.subnav__link:hover{
+  background: rgba(0,0,0,.06);
+  border-color: rgba(0,0,0,.10);
+}
+
+/* Dark/Light automatisch über Tokens besser machen */
+.subnav{
+  background: var(--panel2);
+}
+.subnav__link{
+  color: var(--text);
+  background: rgba(255,255,255,.06);
+  border-color: rgba(255,255,255,.10);
+}
+.subnav__link:hover{
+  background: rgba(255,255,255,.10);
+  border-color: rgba(255,255,255,.14);
+}
+
+/* Mobile Drawer: Untermenü NICHT als Dropdown,
+   sondern einfach sichtbar unter "Angebote" */
+@media (max-width: 899px){
+  .navGroup{
+    width: 100%;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 8px;
+  }
+
+/* Desktop Dropdown – KEIN Hover-Gap */
+.subnav{
+  position: absolute;
+  top: 100%;              /* <-- WICHTIG: kein +px */
+  left: 0;
+
+  min-width: 240px;
+  padding: 10px;
+  margin-top: 0;          /* <-- explizit */
+
+  background: var(--panel2);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  box-shadow: var(--shadow);
+
+  display: none;
+  flex-direction: column;
+  gap: 6px;
+  z-index: 9999;
+}
+
+
+  .subnav__link{
+    border-radius: 12px;
+    padding: 14px 12px;
+  }
+}
+
+/* Unsichtbare Hover-Brücke */
+.navGroup::after{
+  content:"";
+  position:absolute;
+  left:0;
+  right:0;
+  top:100%;
+  height:12px;           /* Hover-Puffer */
+}
+
+/* =========================
+   SUBMENU: slide-down from top
+   ========================= */
+
+.nav{ position: relative; }
+
+/* Wrapper fürs Untermenü (dein HTML: .nav__item / .nav__sub o.ä.)
+   -> passt die Selector-Namen ggf. an, siehe Kommentar unten */
+.nav__item{
+  position: relative;
+}
+
+/* Untermenü Grundzustand */
+.nav__sub{
+  position: absolute;
+  left: 0;
+  top: calc(100% - 2px); /* <- KEIN Gap, leicht überlappen */
+  min-width: 220px;
+
+  padding: 10px;
+  border-radius: 16px;
+
+  background: rgba(255,255,255,.96);
+  border: 1px solid rgba(0,0,0,.10);
+  box-shadow: 0 20px 60px rgba(0,0,0,.14);
+
+  /* Animation */
+  opacity: 0;
+  transform: translateY(-10px);
+  pointer-events: none;
+
+  transition: opacity 160ms ease, transform 180ms ease;
+  z-index: 200;
+}
+
+/* Sichtbar bei Hover / Focus */
+.nav__item:hover > .nav__sub,
+.nav__item:focus-within > .nav__sub{
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+}
+
+/* Optional: Sub-Links hübsch und vollflächig klickbar */
+.nav__sub a{
+  display: block;
+  padding: 10px 12px;
+  border-radius: 12px;
+  text-decoration: none;
+  color: rgba(0,0,0,.80);
+}
+
+.nav__sub a:hover{
+  background: rgba(0,0,0,.06);
+}
+
+/* =========================
+   MOBILE NAV – FINAL OVERRIDE (single source of truth)
+   Paste at END of style.css
+   ========================= */
+
+@media (max-width: 899px){
+
+  /* --- Header bleibt oben, sauber --- */
+  .header{
+    position: sticky !important;
+    top: 0 !important;
+    z-index: 10000 !important;
+  }
+
+  .header__inner{
+    align-items: center !important;
+  }
+
+  /* --- Burger: echtes 3-Linien Icon, nicht "---" --- */
+  .burger{
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 6px !important;
+
+    width: 48px !important;
+    height: 44px !important;
+    padding: 0 !important;
+    margin: 0 !important;
+
+    border-radius: 14px !important;
+    border: 1px solid rgba(0,0,0,.14) !important;
+    background: rgba(0,0,0,.04) !important;
+    cursor: pointer !important;
+
+    font-size: 0 !important;
+    line-height: 0 !important;
+    color: transparent !important;
+    text-indent: -9999px !important;
+  }
+
+  .burger::before,
+  .burger::after{
+    content: none !important;
+  }
+
+  .burger span{
+    display: block !important;
+    width: 22px !important;
+    height: 2px !important;
+    margin: 0 !important;
+    border-radius: 2px !important;
+    background: rgba(0,0,0,.85) !important;
+    opacity: 1 !important;
+  }
+
+  /* --- Nav: wird zu einem Drawer, aber NICHT full screen chaos --- */
+  .nav{
+    /* kill old absolute positioning */
+    position: fixed !important;
+    left: 0 !important;
+    right: 0 !important;
+    top: 0 !important;
+
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 10px !important;
+
+    width: 100vw !important;
+    max-width: none !important;
+
+    padding: 84px 16px 16px !important; /* Platz für Header */
+    margin: 0 !important;
+
+    background: rgba(255,255,255,.96) !important;
+    border: 0 !important;
+    border-radius: 0 !important;
+    box-shadow: 0 20px 60px rgba(0,0,0,.14) !important;
+    backdrop-filter: blur(10px) !important;
+
+    /* Slide in from top */
+    transform: translateY(-110%) !important;
+    transition: transform 240ms ease !important;
+
+    z-index: 9999 !important;
+
+    /* Wichtig: nicht klickbar wenn zu */
+    pointer-events: none !important;
+  }
+
+  .nav.nav--open{
+    transform: translateY(0) !important;
+    pointer-events: auto !important;
+  }
+
+  /* --- Links: keine hässlichen Rechtecke, sauberer Touch-Target --- */
+  .nav__link{
+    width: 100% !important;
+    padding: 14px 14px !important;
+    border-radius: 14px !important;
+
+    text-decoration: none !important;
+    background: rgba(0,0,0,.03) !important;
+    border: 1px solid rgba(0,0,0,.08) !important;
+
+    color: rgba(0,0,0,.86) !important;
+    font-size: 18px !important;
+    line-height: 1.2 !important;
+
+    transition: background 160ms ease, transform 160ms ease, border-color 160ms ease !important;
+  }
+
+  .nav__link:hover{
+    background: rgba(0,0,0,.06) !important;
+    border-color: rgba(0,0,0,.12) !important;
+    transform: translateY(-1px) !important;
+  }
+
+  /* Active State falls vorhanden */
+  .nav__link--active{
+    background: rgba(0,0,0,.08) !important;
+    border-color: rgba(0,0,0,.14) !important;
+    font-weight: 800 !important;
+  }
+}
+
+/* Desktop: Burger aus, Nav normal */
+@media (min-width: 900px){
+  .burger{ display: none !important; }
+  .nav{
+    position: static !important;
+    transform: none !important;
+    pointer-events: auto !important;
+    background: transparent !important;
+    box-shadow: none !important;
+    padding: 0 !important;
+  }
+}
+
+/* =========================
+   MOBILE CTA BUTTONS – mehr Platz + volle Breite
+   ========================= */
+@media (max-width: 520px){
+  .hero__cta,
+  .panel .hero__cta,
+  .panel__head .hero__cta{
+    flex-direction: column !important;
+    align-items: stretch !important;
+    gap: 12px !important;
+  }
+
+  .hero__cta .btn,
+  .panel .btn{
+    width: 100% !important;
+    justify-content: center !important;
+    white-space: normal !important; /* falls Text mal länger wird */
+  }
+}
+
+/* =========================
+   MOBILE: Panel-Header CTAs nicht quetschen
+   (betrifft u.a. "Studio anfragen" + "Beispiele")
+   ========================= */
+@media (max-width: 520px){
+
+  /* Der Header-Block wird untereinander statt nebeneinander */
+  .panel__head{
+    flex-direction: column !important;
+    align-items: stretch !important;
+    gap: 12px !important;
+  }
+
+  /* Alles, was im Header nach Buttons aussieht: volle Breite */
+  .panel__head .btn{
+    width: 100% !important;
+    justify-content: center !important;
+    white-space: normal !important;
+  }
+
+  /* Falls der Button-Wrapper noch "rechts" klebt */
+  .panel__head > div:last-child{
+    width: 100% !important;
+    justify-content: stretch !important;
+  }
+}
+
+/* =========================
+   MOBILE: Button-Reihen nie quetschen (global)
+   ========================= */
+@media (max-width: 560px){
+
+  /* Buttons sollen auf Mobile generell volle Breite können */
+  .btn{
+    width: 100% !important;
+    justify-content: center !important;
+  }
+
+  /* Häufige CTA-Wrapper: wenn irgendwo Buttons in einer Reihe sind -> untereinander */
+  .hero__cta,
+  .panel__head,
+  .panel__head > div,
+  .panel .acc__body > div,
+  .panel > div{
+    flex-wrap: wrap !important;
+  }
+
+  /* Wenn der Wrapper flex ist, machen wir daraus "stack" */
+  .hero__cta,
+  .panel__head > div,
+  .panel .acc__body > div,
+  .panel > div{
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: stretch !important;
+    gap: 10px !important;
+  }
+
+  /* Keine komischen Inline-Button-Schrumpfungen */
+  .btn--primary,
+  .btn--ghost{
+    min-width: 0 !important;
+    white-space: normal !important;
+  }
+}
+
+/* =========================================================
+   MOBILE CTA FIX (robust): Jede Reihe die Buttons enthält -> untereinander
+   Nutzt :has() (Chrome/Edge/Safari ok)
+   ========================================================= */
+@media (max-width: 900px){
+
+  /* Jeder Container, der direkt mind. 2 Buttons enthält */
+  .panel :is(div,section,nav,article,header,footer):has(> .btn + .btn),
+  .hero :is(div,section,nav,article,header,footer):has(> .btn + .btn),
+  .section :is(div,section,nav,article,header,footer):has(> .btn + .btn){
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: stretch !important;
+    gap: 10px !important;
+  }
+
+  /* Alle Buttons in so einem Container: volle Breite */
+  .panel :is(div,section,nav,article,header,footer):has(> .btn) > .btn,
+  .hero :is(div,section,nav,article,header,footer):has(> .btn) > .btn,
+  .section :is(div,section,nav,article,header,footer):has(> .btn) > .btn{
+    width: 100% !important;
+    max-width: 100% !important;
+    display: inline-flex !important;
+    justify-content: center !important;
+    box-sizing: border-box !important;
+    white-space: normal !important;
+  }
+}
+
+/* =========================
+   BURGER SIZE FIX (Mobile)
+   -> kleiner als Header, wirkt nicht wie "Headbar-Button"
+   ========================= */
+@media (max-width: 899px){
+
+  /* Header etwas kompakter (optional aber hilft) */
+  .header__inner{
+    padding: .55rem 0 !important;   /* war .85rem */
+  }
+
+  /* Burger wirklich "button-sized" */
+  .burger{
+    width: 42px !important;
+    height: 38px !important;
+    border-radius: 12px !important;
+
+    /* ganz wichtig: niemals stretch */
+    align-self: center !important;
+
+    /* Icon sauber mittig */
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 5px !important;
+
+    /* keine extra Innenhöhe */
+    padding: 0 !important;
+  }
+
+  /* Linien etwas kürzer, damit’s elegant wirkt */
+  .burger > span{
+    width: 20px !important;
+    height: 2px !important;
+    margin: 0 !important;
+  }
+}
+/* =========================
+   MOBILE NAV HOVER + SUBNAV CLEANUP
+   (ganz ans Ende)
+   ========================= */
+@media (max-width: 899px){
+
+  /* Links: weniger "Karte", mehr clean List-Item */
+  .nav__link{
+    background: rgba(0,0,0,.02) !important;
+    border: 1px solid rgba(0,0,0,.06) !important;
+    box-shadow: none !important;
+    transform: none !important;
+  }
+
+  /* Hover/Focus: KEIN Springen, nur dezenter Shade */
+  .nav__link:hover,
+  .nav__link:focus-visible{
+    background: rgba(0,0,0,.045) !important;
+    border-color: rgba(0,0,0,.10) !important;
+    transform: none !important;
+  }
+
+  /* Active (tap/click) fühlt sich "snappy" an */
+  .nav__link:active{
+    background: rgba(0,0,0,.07) !important;
+  }
+
+  /* --- Angebote Gruppe + Untermenü: NICHT als Dropdown, sondern inline --- */
+  .navGroup{
+    width: 100% !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: stretch !important;
+    gap: 8px !important;
+  }
+
+  /* Subnav im Mobile: statisch, sichtbar, eingerückt */
+  .subnav{
+    position: static !important;
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 8px !important;
+
+    padding: 0 0 0 14px !important;  /* Einrückung */
+    margin: -2px 0 6px !important;
+
+    background: transparent !important;
+    border: 0 !important;
+    box-shadow: none !important;
+    border-radius: 0 !important;
+  }
+
+  .subnav__link{
+    width: 100% !important;
+    padding: 12px 14px !important;
+    border-radius: 14px !important;
+
+    background: rgba(0,0,0,.02) !important;
+    border: 1px solid rgba(0,0,0,.06) !important;
+    color: rgba(0,0,0,.82) !important;
+
+    transform: none !important;
+  }
+
+  .subnav__link:hover,
+  .subnav__link:focus-visible{
+    background: rgba(0,0,0,.045) !important;
+    border-color: rgba(0,0,0,.10) !important;
+    transform: none !important;
+  }
+
+  /* Diese Hover-"Brücke" killt auf Mobile gern die Optik */
+  .navGroup::after{
+    display: none !important;
+  }
+}
+/* =========================
+   DESKTOP: Dropdown nur bei Hover auf "Angebote"
+   ========================= */
+@media (min-width: 900px){
+
+  .navGroup{
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+  }
+
+  /* Subnav: standardmäßig zu */
+  .navGroup .subnav{
+    position: absolute;
+    left: 0;
+    top: calc(100% - 2px);      /* kein Gap */
+    min-width: 230px;
+
+    padding: 10px;
+    border-radius: 16px;
+
+    background: rgba(255,255,255,.96);
+    border: 1px solid rgba(0,0,0,.10);
+    box-shadow: 0 20px 60px rgba(0,0,0,.14);
+    backdrop-filter: blur(10px);
+
+    display: none;
+    z-index: 9999;
+  }
+
+  /* Nur bei Hover/Fokus auf navGroup öffnen */
+  .navGroup:hover .subnav,
+  .navGroup:focus-within .subnav{
+    display: grid;
+    gap: 6px;
+  }
+
+  /* Links im Dropdown */
+  .subnav__link{
+    display: block;
+    padding: 10px 12px;
+    border-radius: 12px;
+
+    text-decoration: none;
+    color: rgba(0,0,0,.82);
+
+    background: rgba(0,0,0,.03);
+    border: 1px solid rgba(0,0,0,.06);
+
+    transition: background 140ms ease, border-color 140ms ease;
+  }
+
+  .subnav__link:hover{
+    background: rgba(0,0,0,.06);
+    border-color: rgba(0,0,0,.10);
+  }
+
+  /* WICHTIG: Hover-Bridge aus (die macht oft "komische" Effekte) */
+  .navGroup::after{ display:none !important; }
+}

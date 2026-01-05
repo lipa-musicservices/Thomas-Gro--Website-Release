@@ -9,28 +9,8 @@
 
 <body>
 
-  <!-- HEADER -->
-  <header class="header">
-    <div class="container header__inner">
-      <a class="brand" href="index.html">
-        <img class="brand__logo" src="Resources/Logo.png" alt="Thommysax Logo" />
-        <span class="brand__name">THOMMYSAX</span>
-      </a>
+<div data-include="headbar"></div>
 
-      <button class="burger" type="button" aria-label="Menü öffnen" aria-expanded="false" data-burger>
-        <span></span><span></span><span></span>
-      </button>
-
-      <nav class="nav" data-nav>
-        <a class="nav__link nav__link--active" href="index.html">Home</a>
-                <a class="nav__link" href="angebote.html">Angebote</a>
-        <a class="nav__link" href="about.html">Über mich</a>
-
-        <a class="nav__link" href="media.html">Media</a>
-        <a class="nav__link" href="contact.html">Kontakt</a>
-      </nav>
-    </div>
-  </header>
 
 
 
@@ -74,106 +54,65 @@
     </section>
   </main>
 
-  <!-- FOOTER -->
-  <footer class="footer">
-    <div class="container footer__grid">
-      <div class="footer__col">
-        <img class="footer__logo" src="Resources/Logo.png" alt="Thommysax Logo" />
-        <p class="footer__text">
-          Live-Sax für Events, Hochzeiten & Firmenfeiern.<br/>
-          Raum Stuttgart / Mannheim & Umgebung.
-        </p>
-      </div>
+<div data-include="footbar"></div>
 
-      <div class="footer__col">
-        <div class="footer__title">Links</div>
-        <a class="footer__link" href="index.html">Home</a>
-                <a class="footer__link" href="angebote.html">Angebote</a>
-        <a class="footer__link" href="about.html">Über mich</a>
+<script src="Fixedpages/include.js"></script>
 
-        <a class="footer__link" href="media.html">Media</a>
-        <a class="footer__link" href="contact.html">Kontakt</a>
-      </div>
+<script>
+(function () {
+  function bindBurger() {
+    const burger = document.querySelector("[data-burger]");
+    const nav = document.querySelector("[data-nav]");
+    if (!burger || !nav) return false;
+    if (burger.dataset.bound === "1") return true;
 
-      <div class="footer__col">
-        <div class="footer__title">Kontakt</div>
-        <a class="footer__link" href="mailto:info@thommysax.de">info@thommysax.de</a>
-        <a class="footer__link" href="tel:+4915128907256">+49 151 28907256</a>
-
-        <div class="footer__chips">
-          <a class="chip" target="_blank" href="https://www.instagram.com/tomtomsax88/">Instagram</a>
-          <a class="chip" target="_blank" href="https://www.youtube.com/@Thommysax88">YouTube</a>
-        </div>
-      </div>
-    </div>
-
-    <div class="container footer__bottom">
-      <div class="footer__bottomLeft">
-        <div class="footer__copyright">© <span id="year"></span> Thommysax</div>
-        <div class="footer__powered">
-          This website is powered by
-          <a class="footer__poweredLink" href="https://lipamusicservices.com" target="_blank" rel="noopener">LiPa Music Services</a>
-        </div>
-      </div>
-
-      <div class="footer__bottomlinks">
-        <a class="footer__small" href="impressum.html">Impressum</a>
-        <a class="footer__small" href="datenschutz.html">Datenschutz</a>
-      </div>
-    </div>
-  </footer>
-
-  <!-- SCRIPTS -->
-  <script>
-    // Jahr
-    document.getElementById("year").textContent = new Date().getFullYear();
-
-    // Burger: Top Drawer
-    document.addEventListener("DOMContentLoaded", () => {
-      const burger = document.querySelector("[data-burger]");
-      const nav = document.querySelector("[data-nav]");
-      if (!burger || !nav) return;
-
-      const openNav = () => {
-        burger.setAttribute("aria-expanded", "true");
-        nav.classList.add("nav--open");
-        document.body.classList.add("noScroll");
-      };
-      const closeNav = () => {
-        burger.setAttribute("aria-expanded", "false");
-        nav.classList.remove("nav--open");
-        document.body.classList.remove("noScroll");
-      };
-
-      burger.addEventListener("click", (e) => {
-        e.preventDefault();
-        e.stopPropagation();
-        const isOpen = burger.getAttribute("aria-expanded") === "true";
-        isOpen ? closeNav() : openNav();
-      });
-
-      document.addEventListener("click", (e) => {
-        if (!nav.contains(e.target) && !burger.contains(e.target)) closeNav();
-      });
-
-      document.addEventListener("keydown", (e) => {
-        if (e.key === "Escape") closeNav();
-      });
-
-      nav.querySelectorAll("a").forEach(a => a.addEventListener("click", closeNav));
+    burger.dataset.bound = "1";
+    burger.addEventListener("click", (e) => {
+      e.preventDefault();
+      const willOpen = !nav.classList.contains("nav--open");
+      nav.classList.toggle("nav--open", willOpen);
+      burger.setAttribute("aria-expanded", String(willOpen));
     });
 
-    // Title Text laden (wichtig: Pfad + Case beachten!)
-    document.addEventListener("DOMContentLoaded", () => {
-      const el = document.getElementById("TitleText");
-      if (!el) return;
+    return true;
+  }
 
-      fetch("./Texts/TitleText.txt")
-        .then(r => r.ok ? r.text() : Promise.reject(new Error("TitleText 404")))
-        .then(t => el.innerHTML = t.trim().split("\n").map(l => l.trim()).join("<br>"))
-        .catch(() => el.textContent = "Text konnte nicht geladen werden.");
-    });
-  </script>
+  if (bindBurger()) return;
+
+  let tries = 0;
+  const t = setInterval(() => {
+    tries++;
+    if (bindBurger() || tries > 60) clearInterval(t);
+  }, 50);
+})();
+</script>
+
+<script>
+function loadTitleText(){
+  const el = document.getElementById("TitleText");
+  if (!el) return false;
+
+  fetch("Texts/TitleText.txt", { cache: "no-store" })
+    .then(r => r.ok ? r.text() : Promise.reject(new Error("TitleText 404")))
+    .then(t => el.innerHTML = t.trim().split("\n").map(l => l.trim()).join("<br>"))
+    .catch(() => el.textContent = "Text konnte nicht geladen werden.");
+
+  return true;
+}
+
+document.addEventListener("DOMContentLoaded", () => {
+  if (loadTitleText()) return;
+
+  // falls #TitleText erst durch include kommt: kurz pollen
+  let tries = 0;
+  const t = setInterval(() => {
+    tries++;
+    if (loadTitleText() || tries > 60) clearInterval(t);
+  }, 50);
+});
+</script>
+
+
 
   <script>
     // Events (JSONP)
@@ -277,6 +216,7 @@
       }
     })();
   </script>
+<script src="Fixedpages/include.js"></script>
 
 </body>
 </html>

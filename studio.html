@@ -1,0 +1,177 @@
+<!-- =========================
+     studio.html
+     ========================= -->
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Thommysax – Studioprofil</title>
+
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+<div data-include="headbar"></div>
+
+  <main class="main">
+
+    <!-- HERO / Header -->
+    <section class="section section--tight">
+      <div class="container">
+        <h1 class="section-title">Studioprofil</h1>
+        <p class="section-subtitle">
+          Präzision · Verlässlichkeit · musikalisches Gespür
+        </p>
+
+        <div class="panel" style="margin-top:1.1rem;">
+          <div class="panel__head" style="gap:.6rem; flex-wrap:wrap;">
+            <div>
+              <div style="font-weight:900; margin-bottom:.25rem;">Musikalisch im Sinne der Produktion.</div>
+              <div class="muted" style="line-height:1.5;">
+                Passende Klangfarbe, saubere Time, eindeutige Artikulation – präsent im Mix, ohne sich aufzudrängen.
+              </div>
+            </div>
+
+            <div style="display:flex; gap:.6rem; flex-wrap:wrap; justify-content:flex-end;">
+              <a class="btn btn--primary" href="contact.html">Studio anfragen</a>
+              <a class="btn btn--ghost" href="media.html">Beispiele</a>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- CONTENT -->
+    <section class="section">
+      <div class="container">
+
+        <div class="panel">
+          <div class="panel__head">
+            <h2 class="panel__title">Arbeitsweise</h2>
+          </div>
+
+          <div class="acc__body" style="padding-top:.2rem;">
+            <p style="margin:0 0 .9rem;">
+              Studioarbeit bedeutet für mich Präzision, Verlässlichkeit und musikalisches Gespür.
+            </p>
+
+            <p style="margin:0 0 .9rem;">
+              Ich arbeite ruhig, fokussiert und effizient – mit einem klaren Verständnis dafür, was eine Produktion braucht.
+              Mein Tenorsaxophon-Sound ist kontrolliert, flexibel und gut integrierbar: tragfähig im Mix, klar in der Intonation
+              und anpassungsfähig an unterschiedliche Stilistiken.
+            </p>
+
+            <p style="margin:0;">
+              Ich denke musikalisch im Sinne der Produktion, nicht im Sinne des Instruments: passende Klangfarbe, saubere Time,
+              eindeutige Artikulation – und die Bereitschaft, sich in den Dienst des Gesamtklangs zu stellen.
+            </p>
+          </div>
+        </div>
+
+        <div class="panel" style="margin-top:1.2rem;">
+          <div class="panel__head">
+            <h3 class="panel__title">Rollen im Mix</h3>
+            <div class="muted">Lead · Section · Layer · Farbe · Textur</div>
+          </div>
+
+          <div class="acc__body" style="padding-top:.2rem;">
+            <p style="margin:0 0 .9rem;">
+              Meine Erfahrung aus Jazz, Bigband, Pop-, Lounge- und Produktionskontexten ermöglicht es mir, schnell zwischen Rollen zu wechseln:
+              Lead, Section, Layer, Farbe oder dezente Textur. Dabei bleibt mein Spiel stets musikalisch präsent, ohne sich in den Vordergrund zu drängen.
+            </p>
+
+            <ul class="niceList niceList--cols">
+              <li>Lead-Lines & Hooks</li>
+              <li>Section-Parts / Satz</li>
+              <li>Layer / Doppelungen</li>
+              <li>FX-/Textur-Spuren</li>
+              <li>Dezente Fills</li>
+              <li>Stilistische Anpassung</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="panel" style="margin-top:1.2rem;">
+          <div class="panel__head">
+            <h3 class="panel__title">Hybrid & Remote</h3>
+            <div class="muted">flexibel buchbar – auch ohne Vor-Ort-Session</div>
+          </div>
+
+          <div class="acc__body" style="padding-top:.2rem;">
+            <p style="margin:0 0 .9rem;">
+              Auf Wunsch arbeite ich hybrid oder remote: Aufnahmen nach Briefing, Referenztrack und ggf. Noten/Lead-Sheet.
+            </p>
+            <ul class="niceList">
+              <li>Lieferung als sauber benannte Stems (Dry/Wet nach Absprache)</li>
+              <li>1–2 Korrekturschleifen für Timing / Artikulation</li>
+              <li>Kurzer Call oder Chat vorab – spart Takes und Nerven</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="panel" style="margin-top:1.2rem;">
+          <div class="panel__head">
+            <h3 class="panel__title">So läuft’s ab</h3>
+            <div class="muted">klarer Workflow – schnelle Ergebnisse</div>
+          </div>
+
+          <div class="acc__body" style="padding-top:.2rem;">
+            <ol class="niceList">
+              <li>Briefing (Stil, Referenzen, Tonart, Länge, Rolle)</li>
+              <li>Recording (vor Ort oder remote)</li>
+              <li>Lieferung (Stems + optional Effekte)</li>
+              <li>Feedback / Revision</li>
+              <li>Final</li>
+            </ol>
+
+            <div style="display:flex; gap:.6rem; flex-wrap:wrap; margin-top:1rem;">
+              <a class="btn btn--primary" href="contact.html">Studio-Anfrage senden</a>
+              <a class="btn btn--ghost" href="media.html">Audio/Video ansehen</a>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <!-- FOOTBAR INCLUDE -->
+
+  <div data-include="footbar"></div>
+
+  <script src="Fixedpages/include.js"></script>
+
+<script>
+(function () {
+  function bindBurger() {
+    const burger = document.querySelector("[data-burger]");
+    const nav = document.querySelector("[data-nav]");
+    if (!burger || !nav) return false;
+    if (burger.dataset.bound === "1") return true;
+
+    burger.dataset.bound = "1";
+    burger.addEventListener("click", (e) => {
+      e.preventDefault();
+      const willOpen = !nav.classList.contains("nav--open");
+      nav.classList.toggle("nav--open", willOpen);
+      burger.setAttribute("aria-expanded", String(willOpen));
+    });
+
+    return true;
+  }
+
+  if (bindBurger()) return;
+
+  let tries = 0;
+  const t = setInterval(() => {
+    tries++;
+    if (bindBurger() || tries > 60) clearInterval(t);
+  }, 50);
+})();
+</script>
+
+</body>
+</html>
