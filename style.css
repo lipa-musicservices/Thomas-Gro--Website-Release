@@ -2435,3 +2435,13 @@ footer.footer .footer__small:hover{
   /* WICHTIG: Hover-Bridge aus (die macht oft "komische" Effekte) */
   .navGroup::after{ display:none !important; }
 }
+
+html{
+  -webkit-text-size-adjust: 100%;
+}
+
+body{
+  font-synthesis: none;              /* verhindert Fake-Bold/Italic */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
