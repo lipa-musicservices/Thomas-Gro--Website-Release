@@ -5,15 +5,18 @@
   const base = new URL("./", scriptUrl || window.location.href);
 
   async function loadFragment(name) {
-    // erwartet: Fixedpages/headbar.html, Fixedpages/footbar.html
-    const url = new URL(`${name}.html`, base).toString();
+  const fileMap = {
+    headbar: "Headbar.html",
+    footbar: "Footbar.html",
+  };
 
-    const res = await fetch(url, { cache: "no-cache" });
-    if (!res.ok) {
-      throw new Error(`Include "${name}" failed: ${res.status} ${res.statusText} (${url})`);
-    }
-    return await res.text();
-  }
+  const file = fileMap[name] || `${name}.html`;
+  const url = new URL(file, base).toString();
+
+  const res = await fetch(url, { cache: "no-cache" });
+  if (!res.ok) throw new Error(`Include "${name}" failed: ${res.status} ${res.statusText} (${url})`);
+  return await res.text();
+}
 
   async function boot() {
     const slots = Array.from(document.querySelectorAll("[data-include]"));
