@@ -1,22 +1,23 @@
 // Fixedpages/include.js
 (function () {
-  // Base-URL = Ordner von include.js (also /Fixedpages/)
   const scriptUrl = document.currentScript?.src || "";
   const base = new URL("./", scriptUrl || window.location.href);
 
   async function loadFragment(name) {
-  const fileMap = {
-    headbar: "Headbar.html",
-    footbar: "Footbar.html",
-  };
+    const fileMap = {
+      headbar: "Headbar.html",
+      footbar: "Footbar.html",
+    };
 
-  const file = fileMap[name] || `${name}.html`;
-  const url = new URL(file, base).toString();
+    const file = fileMap[name] || `${name}.html`;
+    const url = new URL(file, base).toString();
 
-  const res = await fetch(url, { cache: "no-cache" });
-  if (!res.ok) throw new Error(`Include "${name}" failed: ${res.status} ${res.statusText} (${url})`);
-  return await res.text();
-}
+    const res = await fetch(url, { cache: "no-cache" });
+    if (!res.ok) {
+      throw new Error(`Include "${name}" failed: ${res.status} ${res.statusText} (${url})`);
+    }
+    return await res.text();
+  }
 
   async function boot() {
     const slots = Array.from(document.querySelectorAll("[data-include]"));
@@ -33,36 +34,38 @@
       }
     }
 
-    // Event: "Includes sind da"
+    // Burger & Headbar-UI einmal global binden
+    bindHeadbarOnce();
+
     document.dispatchEvent(new CustomEvent("includes:ready"));
   }
 
-  // sofort starten
   boot();
 })();
 
 function bindHeadbarOnce() {
-  // Doppelt-Binding verhindern
   if (window.__HEADBAR_BOUND__) return;
   window.__HEADBAR_BOUND__ = true;
 
-  // 1) Burger toggle (delegiert)
-  document.addEventListener("click", (e) => {
-    const burger = e.target.closest("[data-burger]");
-    if (!burger) return;
+  document.addEventListener(
+    "click",
+    (e) => {
+      const burger = e.target.closest("[data-burger]");
+      if (!burger) return;
 
-    e.preventDefault();
+      e.preventDefault();
 
-    const nav = document.querySelector("[data-nav]");
-    if (!nav) return;
+      const nav = document.querySelector("[data-nav]");
+      if (!nav) return;
 
-    const willOpen = !nav.classList.contains("nav--open");
-    nav.classList.toggle("nav--open", willOpen);
-    burger.setAttribute("aria-expanded", String(willOpen));
-    document.body.classList.toggle("noScroll", willOpen);
-  }, true);
+      const willOpen = !nav.classList.contains("nav--open");
+      nav.classList.toggle("nav--open", willOpen);
+      burger.setAttribute("aria-expanded", String(willOpen));
+      document.body.classList.toggle("noScroll", willOpen);
+    },
+    true
+  );
 
-  // 2) Klick außerhalb schließt
   document.addEventListener("click", (e) => {
     const nav = document.querySelector("[data-nav]");
     const burger = document.querySelector("[data-burger]");
@@ -76,7 +79,6 @@ function bindHeadbarOnce() {
     }
   });
 
-  // 3) ESC schließt
   document.addEventListener("keydown", (e) => {
     if (e.key !== "Escape") return;
 
