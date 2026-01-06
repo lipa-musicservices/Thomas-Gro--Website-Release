@@ -43,32 +43,8 @@
 <script src="Fixedpages/include.js"></script>
 
 <script>
-(function () {
-  function bindBurger() {
-    const burger = document.querySelector("[data-burger]");
-    const nav = document.querySelector("[data-nav]");
-    if (!burger || !nav) return false;
-    if (burger.dataset.bound === "1") return true;
-
-    burger.dataset.bound = "1";
-    burger.addEventListener("click", (e) => {
-      e.preventDefault();
-      const willOpen = !nav.classList.contains("nav--open");
-      nav.classList.toggle("nav--open", willOpen);
-      burger.setAttribute("aria-expanded", String(willOpen));
-    });
-
-    return true;
-  }
-
-  if (bindBurger()) return;
-
-  let tries = 0;
-  const t = setInterval(() => {
-    tries++;
-    if (bindBurger() || tries > 60) clearInterval(t);
-  }, 50);
-})();
+  // globales, delegiertes Binding (funktioniert auch wenn headbar erst später kommt)
+  bindHeadbarOnce();
 </script>
 
 

@@ -174,31 +174,27 @@
   </main>
 
   <div data-include="footbar"></div>
-  <!-- SCRIPTS -->
-  <script>
-  function initSharedUi(){
-    // Jahr (nur wenn #year existiert)
-    const yearEl = document.getElementById("year");
-    if (yearEl) yearEl.textContent = new Date().getFullYear();
 
-    // Burger Menü (nur wenn vorhanden)
-    const burger = document.querySelector("[data-burger]");
-    const nav = document.querySelector("[data-nav]");
-    if (burger && nav && !burger.dataset.bound){
-      burger.dataset.bound = "1";
-      burger.addEventListener("click", () => {
-        nav.classList.toggle("nav--open");
-        burger.setAttribute("aria-expanded", nav.classList.contains("nav--open"));
-      });
-    }
+  <script src="Fixedpages/include.js"></script>
+
+  <script>
+  // ===== Headbar: Burger global binden (delegiert) =====
+  bindHeadbarOnce();
+
+  // ===== kleine Helfer =====
+  function escapeHtml(s){
+    return String(s ?? "").replace(/[&<>"']/g, m => ({
+      "&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#039;"
+    }[m]));
   }
 
+  // ===== 1) About-Text aus TXT =====
   function loadAboutText(){
     const box = document.getElementById("AboutText");
     if (!box) return;
 
-    fetch("Texts/AboutText.txt")
-      .then(r => r.ok ? r.text() : Promise.reject())
+    fetch("Texts/AboutText.txt", { cache: "no-store" })
+      .then(r => r.ok ? r.text() : Promise.reject(new Error("AboutText.txt not found")))
       .then(t => {
         box.innerHTML = t.trim().split("\n").map(line => line.trim()).join("<br>");
       })
@@ -207,248 +203,183 @@
       });
   }
 
-  // Läuft sofort (AboutText ist schon im HTML)
-  document.addEventListener("DOMContentLoaded", () => {
+  // ===== 2) Seite initialisieren =====
+  function initAboutPage(){
+    // AboutText laden
     loadAboutText();
 
-    // Wartet auf Headbar/Footbar-Include und initialisiert dann Jahr/Burger
-    const timer = setInterval(() => {
-      if (document.querySelector("[data-burger]") && document.getElementById("year")) {
-        clearInterval(timer);
-        initSharedUi();
+    // Beschreibung
+    const descEl = document.getElementById("descText");
+    if (descEl) {
+      const DESC = `Ich bin in Ludwigshafen am Rhein geboren ... Ich freue mich über Ihre Anfragen!`;
+      descEl.textContent = DESC;
+    }
+
+    // Referenzen
+    const refList = document.getElementById("refList");
+    if (refList) {
+      const REFERENCES = [
+        "Mehrjähriges Mitglied der Landesjugendjazzorchester Rheinland-Pfalz und Bayern.",
+        "Saxophonist bei den Jamrays",
+        "Brass2Go, die Marching Band",
+        "Mike Field, Unterfahrt München",
+        "Idstein Jazz Festival, Bad Homburger Jazztage 2021",
+        "Showbühne Mainz, Festhalle Pirmasens",
+        "Pura GmbH, Saarbrücken",
+        "De Longhi, Neu Isenburg",
+        "Internationale Hotelfachschule Heidelberg",
+        "Hambacher Schloss, Neustadt an der Weinstraße",
+        "Stadthalle Hockenheim",
+        "Alanus Hochschule Mannheim",
+        "Stadt Ludwigshafen am Rhein",
+        "Schloss Heiligenberg, Seeheim-Jugenheim",
+        "Eventlocation Hoher Darsberg, Neckarsteinnach",
+        "Hotelrestaurant Deidesheimer Hof",
+        "Telekom Ludwigshafen am Rhein",
+        "Restaurant Hohlbein, Frankfurt am Main",
+        "Restaurant Wolfsbrunnen, Heidelberg Schlierbach",
+        "Landesmusikakademie Rheinland-Pfalz und Bayern",
+        "Mawell Resort",
+        "Kranzplatzfest Wiesbaden 2023",
+        "Gut Leben am Morstein, Westhofen Worms 2023",
+        "Weingut Motzenbäcker, Ruppertsberg 2023",
+        "Restaurant Atable, Freinsheim 2023",
+        "Software AG Stiftung Darmstadt 2023",
+        "Restaurant Weinreich, Freinsheim 2023",
+        "BauAC Masterground Speyer 2023",
+        "Ella & Louis Mannheim Rosengarten, Saxomania 2023",
+        "BUGA 2023 Mannheim, Saxomania",
+        "Koblenzer Weihnachtsmarkt 2023",
+        "Night of the Power Ladies Show Bräustadel Heidelberg 2024",
+        "Weingut Schloss Janson Worms, Altes Ruderhaus Worms",
+        "Gutshof Ladenburg",
+        "Restaurant Lindbergh Flugplatz Mannheim, Halloween Party 2024",
+        "VH Management Stuttgart",
+        "Club Kaiser Skybar Heilbronn",
+        "Little Kitchen Limburg",
+        "Wein- und Sektkellerei Frankfurt Höchst"
+      ];
+
+      refList.innerHTML = REFERENCES.map(x => `<li>${escapeHtml(x)}</li>`).join("");
+    }
+
+    // Gallery
+    const gallery = document.getElementById("gallery");
+    if (gallery) {
+      const IMAGES = [
+        "https://images.eventpeppers.com/sites/default/files/imagecache/lightbox-lg/images/7095/thomas-gross-161722.jpg",
+        "https://images.eventpeppers.com/sites/default/files/imagecache/lightbox-lg/images/7095/thomas-gross-161723.jpg",
+        "https://images.eventpeppers.com/sites/default/files/imagecache/lightbox-lg/images/7095/thomas-gross-161724.jpg",
+        "https://images.eventpeppers.com/sites/default/files/imagecache/lightbox-lg/images/7095/thomas-gross-161725.jpg",
+        "https://images.eventpeppers.com/sites/default/files/imagecache/lightbox-lg/images/7095/thomas-gross-161726.jpg",
+        "https://images.eventpeppers.com/sites/default/files/imagecache/lightbox-lg/images/7095/thomas-gross-161727.jpg",
+        "https://images.eventpeppers.com/sites/default/files/imagecache/lightbox-lg/images/7095/thomas-gross-161728.jpg",
+      ];
+
+      gallery.innerHTML = IMAGES.map((src,i) =>
+        `<button class="gItem" type="button" data-img="${src}" aria-label="Foto ${i+1} öffnen">
+           <img src="${src}" alt="Foto ${i+1}" loading="lazy" referrerpolicy="no-referrer">
+         </button>`
+      ).join("");
+    }
+
+    // Lightbox
+    const lb = document.getElementById("lightbox");
+    const lbImg = document.getElementById("lightboxImg");
+    if (lb && lbImg && gallery) {
+      function openLb(src){
+        lbImg.src = src;
+        lb.classList.add("isOpen");
+        lb.setAttribute("aria-hidden", "false");
+        document.body.style.overflow = "hidden";
       }
-    }, 50);
-  });
-</script>
+      function closeLb(){
+        lb.classList.remove("isOpen");
+        lb.setAttribute("aria-hidden", "true");
+        lbImg.src = "";
+        document.body.style.overflow = "";
+      }
 
-<script>
-(function () {
-  function bindBurger() {
-    const burger = document.querySelector("[data-burger]");
-    const nav = document.querySelector("[data-nav]");
-    if (!burger || !nav) return false;
+      gallery.addEventListener("click", (e) => {
+        const btn = e.target.closest("[data-img]");
+        if (!btn) return;
+        openLb(btn.getAttribute("data-img"));
+      });
 
-    // doppelt binden verhindern
-    if (burger.dataset.bound === "1") return true;
-    burger.dataset.bound = "1";
+      lb.addEventListener("click", (e) => {
+        if (e.target.classList.contains("lightbox__bg") || e.target.classList.contains("lightbox__close")) {
+          closeLb();
+        }
+      });
 
-    burger.addEventListener("click", (e) => {
-      e.preventDefault();
-      const willOpen = !nav.classList.contains("nav--open");
-      nav.classList.toggle("nav--open", willOpen);
-      burger.setAttribute("aria-expanded", String(willOpen));
-    });
+      window.addEventListener("keydown", (e) => {
+        if (e.key === "Escape" && lb.classList.contains("isOpen")) closeLb();
+      });
+    }
 
-    // optional: klick außerhalb schließt (kannst du rauswerfen, wenn du’s nicht willst)
-    document.addEventListener("click", (e) => {
-      if (!nav.classList.contains("nav--open")) return;
-      if (nav.contains(e.target) || burger.contains(e.target)) return;
+    // Videos
+    const videosEl = document.getElementById("videos");
+    if (videosEl) {
+      const VIDEOS = [
+        { id: "Ab6gMr46K5g", title: "Smooth Background" },
+        { id: "P8z3xW-GZko", title: "Foolin`around" },
+        { id: "az7V8lqP3cI", title: "Jammin `" },
+        { id: "pwL8lBAmogY", title: "Roof Top Jam" },
+      ];
 
-      nav.classList.remove("nav--open");
-      burger.setAttribute("aria-expanded", "false");
-    });
+      videosEl.innerHTML = VIDEOS.map(v => {
+        const thumb = `https://i.ytimg.com/vi/${v.id}/hqdefault.jpg`;
+        return `
+          <div class="videoCard">
+            <div class="videoThumb" data-youtube="${v.id}">
+              <img src="${thumb}" alt="${escapeHtml(v.title)}">
+            </div>
+            <div class="videoTitle">${escapeHtml(v.title)}</div>
+          </div>
+        `;
+      }).join("");
 
-    // optional: ESC schließt
-    document.addEventListener("keydown", (e) => {
-      if (e.key !== "Escape") return;
-      nav.classList.remove("nav--open");
-      burger.setAttribute("aria-expanded", "false");
-    });
+      videosEl.addEventListener("click", (e) => {
+        const t = e.target.closest("[data-youtube]");
+        if (!t) return;
+        const id = t.getAttribute("data-youtube");
+        t.outerHTML = `
+          <iframe
+            width="100%" height="220"
+            style="border:0; display:block;"
+            src="https://www.youtube-nocookie.com/embed/${id}?rel=0"
+            title="YouTube Video"
+            loading="lazy"
+            allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen>
+          </iframe>
+        `;
+      });
+    }
 
-    return true;
+    // Eventpeppers Gate (nur falls vorhanden)
+    const gate  = document.getElementById("epGate");
+    const frame = document.getElementById("epFrame");
+    const btn   = document.getElementById("epLoadBtn");
+    if (gate && frame && btn) {
+      const EP_URL = "https://www.eventpeppers.com/de/thommysax";
+
+      function loadEventpeppers(){
+        frame.src = EP_URL;
+        frame.style.display = "block";
+        gate.style.display = "none";
+        localStorage.setItem("consent_eventpeppers", "1");
+      }
+
+      btn.addEventListener("click", loadEventpeppers);
+      if (localStorage.getItem("consent_eventpeppers") === "1") loadEventpeppers();
+    }
   }
 
-  // direkt versuchen (falls headbar schon da ist)
-  if (bindBurger()) return;
+  // Start: wenn DOM ready ist
+  document.addEventListener("DOMContentLoaded", initAboutPage);
+  </script>
 
-  // falls headbar per include später kommt: kurz pollen
-  let tries = 0;
-  const t = setInterval(() => {
-    tries++;
-    if (bindBurger() || tries > 60) clearInterval(t); // ~3s max
-  }, 50);
-})();
-</script>
-
-
-
-  <script src="Fixedpages/include.js"></script>
 
 </body>
 </html>
-
-<script>
-  const EP_URL = "https://www.eventpeppers.com/de/thommysax";
-
-  const gate  = document.getElementById("epGate");
-  const frame = document.getElementById("epFrame");
-  const btn   = document.getElementById("epLoadBtn");
-
-  function loadEventpeppers(){
-    frame.src = EP_URL;
-    frame.style.display = "block";
-    gate.style.display = "none";
-    localStorage.setItem("consent_eventpeppers", "1");
-  }
-
-  btn.addEventListener("click", loadEventpeppers);
-
-  // optional: wenn User schon mal zugestimmt hat
-  if (localStorage.getItem("consent_eventpeppers") === "1") {
-    loadEventpeppers();
-  }
-</script>
-
-<script>
-  // === 1) Beschreibung (dein eigener Text) ===
-  const DESC = `Ich bin in Ludwigshafen am Rhein geboren ... Ich freue mich über Ihre Anfragen!`;
-document.getElementById("descText").textContent = DESC;
-
-const REFERENCES = [
-  "Mehrjähriges Mitglied der Landesjugendjazzorchester Rheinland-Pfalz und Bayern.",
-  "Saxophonist bei den Jamrays",
-  "Brass2Go, die Marching Band",
-  "Mike Field, Unterfahrt München",
-  "Idstein Jazz Festival, Bad Homburger Jazztage 2021",
-  "Showbühne Mainz, Festhalle Pirmasens",
-  "Pura GmbH, Saarbrücken",
-  "De Longhi, Neu Isenburg",
-  "Internationale Hotelfachschule Heidelberg",
-  "Hambacher Schloss, Neustadt an der Weinstraße",
-  "Stadthalle Hockenheim",
-  "Alanus Hochschule Mannheim",
-  "Stadt Ludwigshafen am Rhein",
-  "Schloss Heiligenberg, Seeheim-Jugenheim",
-  "Eventlocation Hoher Darsberg, Neckarsteinnach",
-  "Hotelrestaurant Deidesheimer Hof",
-  "Telekom Ludwigshafen am Rhein",
-  "Restaurant Hohlbein, Frankfurt am Main",
-  "Restaurant Wolfsbrunnen, Heidelberg Schlierbach",
-  "Landesmusikakademie Rheinland-Pfalz und Bayern",
-  "Mawell Resort",
-  "Kranzplatzfest Wiesbaden 2023",
-  "Gut Leben am Morstein, Westhofen Worms 2023",
-  "Weingut Motzenbäcker, Ruppertsberg 2023",
-  "Restaurant Atable, Freinsheim 2023",
-  "Software AG Stiftung Darmstadt 2023",
-  "Restaurant Weinreich, Freinsheim 2023",
-  "BauAC Masterground Speyer 2023",
-  "Ella & Louis Mannheim Rosengarten, Saxomania 2023",
-  "BUGA 2023 Mannheim, Saxomania",
-  "Koblenzer Weihnachtsmarkt 2023",
-  "Night of the Power Ladies Show Bräustadel Heidelberg 2024",
-  "Weingut Schloss Janson Worms, Altes Ruderhaus Worms",
-  "Gutshof Ladenburg",
-  "Restaurant Lindbergh Flugplatz Mannheim, Halloween Party 2024",
-  "VH Management Stuttgart",
-  "Club Kaiser Skybar Heilbronn",
-  "Little Kitchen Limburg",
-  "Wein- und Sektkellerei Frankfurt Höchst"
-];
-
-document.getElementById("refList").innerHTML =
-  REFERENCES.map(x => `<li>${escapeHtml(x)}</li>`).join("");
-
-  const refList = document.getElementById("refList");
-  refList.innerHTML = REFERENCES.map(x => `<li>${escapeHtml(x)}</li>`).join("");
-
-  // === 3) Gallery (HIER: deine Dateinamen eintragen) ===
-  const IMAGES = [
-  "https://images.eventpeppers.com/sites/default/files/imagecache/lightbox-lg/images/7095/thomas-gross-161722.jpg",
-  "https://images.eventpeppers.com/sites/default/files/imagecache/lightbox-lg/images/7095/thomas-gross-161723.jpg",
-  "https://images.eventpeppers.com/sites/default/files/imagecache/lightbox-lg/images/7095/thomas-gross-161724.jpg",
-  "https://images.eventpeppers.com/sites/default/files/imagecache/lightbox-lg/images/7095/thomas-gross-161725.jpg",
-  "https://images.eventpeppers.com/sites/default/files/imagecache/lightbox-lg/images/7095/thomas-gross-161726.jpg",
-  "https://images.eventpeppers.com/sites/default/files/imagecache/lightbox-lg/images/7095/thomas-gross-161727.jpg",
-  "https://images.eventpeppers.com/sites/default/files/imagecache/lightbox-lg/images/7095/thomas-gross-161728.jpg",
-];
-
-const gallery = document.getElementById("gallery");
-gallery.innerHTML = IMAGES.map((src,i) =>
-  `<button class="gItem" type="button" data-img="${src}" aria-label="Foto ${i+1} öffnen">
-     <img src="${src}" alt="Foto ${i+1}" loading="lazy" referrerpolicy="no-referrer">
-   </button>`
-).join("");
-
-
-  // === 4) Videos (HIER: YouTube IDs + Titel) ===
-  // (IDs bekommst du aus https://www.youtube.com/watch?v=VIDEO_ID)
-  const VIDEOS = [
-    { id: "Ab6gMr46K5g", title: "Smooth Background" },
-    { id: "P8z3xW-GZko", title: "Foolin`around" },
-    { id: "az7V8lqP3cI", title: "Jammin `" },
-    { id: "pwL8lBAmogY", title: "Roof Top Jam" },
-  ];
-
-  const videosEl = document.getElementById("videos");
-  videosEl.innerHTML = VIDEOS.map(v => {
-    const thumb = `https://i.ytimg.com/vi/${v.id}/hqdefault.jpg`;
-    return `
-      <div class="videoCard">
-        <div class="videoThumb" data-youtube="${v.id}">
-          <img src="${thumb}" alt="${escapeHtml(v.title)}">
-        </div>
-        <div class="videoTitle">${escapeHtml(v.title)}</div>
-      </div>
-    `;
-  }).join("");
-
-  // click-to-load (YouTube-nocookie)
-  videosEl.addEventListener("click", (e) => {
-    const t = e.target.closest("[data-youtube]");
-    if (!t) return;
-    const id = t.getAttribute("data-youtube");
-    t.outerHTML = `
-      <iframe
-        width="100%" height="220"
-        style="border:0; display:block;"
-        src="https://www.youtube-nocookie.com/embed/${id}?rel=0"
-        title="YouTube Video"
-        loading="lazy"
-        allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
-        allowfullscreen>
-      </iframe>
-    `;
-  });
-
-  function escapeHtml(s){
-    return String(s ?? "").replace(/[&<>"']/g, m => ({
-      "&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#039;"
-    }[m]));
-  }
-
-  const lb = document.getElementById("lightbox");
-const lbImg = document.getElementById("lightboxImg");
-
-function openLb(src){
-  lbImg.src = src;
-  lb.classList.add("isOpen");
-  lb.setAttribute("aria-hidden", "false");
-  document.body.style.overflow = "hidden";
-}
-
-function closeLb(){
-  lb.classList.remove("isOpen");
-  lb.setAttribute("aria-hidden", "true");
-  lbImg.src = "";
-  document.body.style.overflow = "";
-}
-
-document.getElementById("gallery").addEventListener("click", (e) => {
-  const btn = e.target.closest("[data-img]");
-  if (!btn) return;
-  openLb(btn.getAttribute("data-img"));
-});
-
-lb.addEventListener("click", (e) => {
-  if (e.target.classList.contains("lightbox__bg") || e.target.classList.contains("lightbox__close")) {
-    closeLb();
-  }
-});
-
-window.addEventListener("keydown", (e) => {
-  if (e.key === "Escape" && lb.classList.contains("isOpen")) closeLb();
-});
-
-</script>
-

@@ -149,115 +149,63 @@
   </main>
 
   <div data-include="footbar"></div>
-
-
+  <!-- Optional: jQuery (nur wenn du es wirklich auf der Seite nutzt) -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 
-
+  <!-- Includes (Headbar/Footbar) -->
   <script src="Fixedpages/include.js"></script>
 
-<script>
-(function () {
-  function bindBurger() {
-    const burger = document.querySelector("[data-burger]");
-    const nav = document.querySelector("[data-nav]");
-    if (!burger || !nav) return false;
-    if (burger.dataset.bound === "1") return true;
+  <script>
+    // 1) Burger-Menü: genau 1x global binden (delegiert -> funktioniert auch wenn Headbar später kommt)
+    bindHeadbarOnce();
 
-    burger.dataset.bound = "1";
-    burger.addEventListener("click", (e) => {
-      e.preventDefault();
-      const willOpen = !nav.classList.contains("nav--open");
-      nav.classList.toggle("nav--open", willOpen);
-      burger.setAttribute("aria-expanded", String(willOpen));
-    });
+    // 2) Instagram Embed Script laden (1x)
+    (function ensureInstagramScript(){
+      if (window.__IG_EMBED_LOADED__) return;
+      window.__IG_EMBED_LOADED__ = true;
 
-    return true;
-  }
+      const s = document.createElement("script");
+      s.async = true;
+      s.src = "https://www.instagram.com/embed.js";
+      document.head.appendChild(s);
+    })();
 
-  if (bindBurger()) return;
+    // 3) IG Embeds rendern
+    const IG_POSTS_RAW = [
+      "https://www.instagram.com/p/DA0hKzAM6Xl/",
+      "https://www.instagram.com/p/DJfAgBIqaKk/",
+      "https://www.instagram.com/p/C02gxBMIADE/",
+      "https://www.instagram.com/p/DPOulHgivxF/",
+      "https://www.instagram.com/p/DPMmL6AiI-5/?img_index=1",
+      "https://www.instagram.com/p/DO4cUVLii05/"
+    ];
+    const IG_POSTS = IG_POSTS_RAW.map(u => String(u).split("?")[0]);
 
-  let tries = 0;
-  const t = setInterval(() => {
-    tries++;
-    if (bindBurger() || tries > 60) clearInterval(t);
-  }, 50);
-})();
-</script>
+    function renderIgEmbeds(){
+      const grid = document.getElementById("igEmbedGrid");
+      if(!grid) return;
 
+      grid.innerHTML = IG_POSTS.map(url => `
+        <div class="igEmbedCard">
+          <div class="igEmbedCrop">
+            <blockquote class="instagram-media"
+              data-instgrm-permalink="${url}"
+              data-instgrm-version="14">
+            </blockquote>
+          </div>
+        </div>
+      `).join("");
+
+      // warten bis embed.js wirklich bereit ist
+      const tryProcess = () => {
+        if (window.instgrm?.Embeds?.process) window.instgrm.Embeds.process();
+        else setTimeout(tryProcess, 250);
+      };
+      tryProcess();
+    }
+
+    // Start: wenn alles geladen ist (inkl. embed.js, Fonts, etc.)
+    window.addEventListener("load", renderIgEmbeds);
+  </script>
 </body>
 </html>
-
-<!-- Instagram Embed Script (muss genau 1x auf der Seite stehen) -->
-<script async src="https://www.instagram.com/embed.js"></script>
-
-<script>
-  const IG_POSTS_RAW = [
-    "https://www.instagram.com/p/DA0hKzAM6Xl/",
-    "https://www.instagram.com/p/DJfAgBIqaKk/",
-    "https://www.instagram.com/p/C02gxBMIADE/",
-    "https://www.instagram.com/p/DPOulHgivxF/",
-    "https://www.instagram.com/p/DPMmL6AiI-5/?img_index=1",
-    "https://www.instagram.com/p/DO4cUVLii05/"
-  ];
-  const IG_POSTS = IG_POSTS_RAW.map(u => String(u).split("?")[0]);
-
-  function renderIgEmbeds(){
-    const grid = document.getElementById("igEmbedGrid");
-    if(!grid) return;
-
-    grid.innerHTML = IG_POSTS.map(url => `
-      <div class="igEmbedCard">
-        <div class="igEmbedCrop">
-          <blockquote class="instagram-media"
-            data-instgrm-permalink="${url}"
-            data-instgrm-version="14">
-          </blockquote>
-        </div>
-      </div>
-    `).join("");
-
-    const tryProcess = () => {
-      if (window.instgrm?.Embeds?.process) window.instgrm.Embeds.process();
-      else setTimeout(tryProcess, 250);
-    };
-    tryProcess();
-  }
-  window.addEventListener("load", renderIgEmbeds);
-</script>
-
-<script>
-document.addEventListener("DOMContentLoaded", () => {
-  const burger = document.querySelector("[data-burger]");
-  const nav = document.querySelector("[data-nav]");
-  if (!burger || !nav) return;
-
-  const openNav = () => {
-    burger.setAttribute("aria-expanded", "true");
-    nav.classList.add("nav--open");
-  };
-
-  const closeNav = () => {
-    burger.setAttribute("aria-expanded", "false");
-    nav.classList.remove("nav--open");
-  };
-
-  burger.addEventListener("click", (e) => {
-    e.preventDefault();
-    e.stopPropagation();
-    const isOpen = burger.getAttribute("aria-expanded") === "true";
-    if (isOpen) closeNav(); else openNav();
-  });
-
-  document.addEventListener("click", (e) => {
-    if (!nav.contains(e.target) && !burger.contains(e.target)) closeNav();
-  });
-
-  document.addEventListener("keydown", (e) => {
-    if (e.key === "Escape") closeNav();
-  });
-
-  // Wenn du ein Link klickst: Menü zu
-  nav.querySelectorAll("a").forEach(a => a.addEventListener("click", closeNav));
-});
-</script>
