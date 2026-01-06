@@ -17,10 +17,10 @@
   --accent: #35ff7a;
 }
 
-/* ========== TYPO / FONTS (GLOBAL) ========== */
 :root{
   --font: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
 }
+
 
 html{ -webkit-text-size-adjust: 100%; }
 
@@ -36,7 +36,6 @@ body{
 html, body{ height:100%; margin:0; }
 body{
   color: var(--text);
-  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", system-ui, sans-serif;
 
   /* stabiler, durchgehender Background (kein “komischer Abschnitt”) */
   background:
@@ -400,7 +399,6 @@ html, body { height: 100%; margin: 0; }
 body{
   background: #faf7f7;   /* stabil, kein wandernder Balken */
   color: var(--text);
-  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", system-ui, sans-serif;
   min-height: 100vh;
   display:flex;
   flex-direction: column;
@@ -2460,3 +2458,8 @@ body{
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
+
+.event__title{ font-weight: 800; }  /* statt 900 */
+.section-title{ font-weight: 800; } /* statt 900 */
+.acc__title{ font-weight: 800; }    /* statt 900 */
+.ratingValue{ font-weight: 800; }   /* statt 900 */
